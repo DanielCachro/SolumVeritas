@@ -1,0 +1,32 @@
+.header {
+	position: sticky;
+	top: 0;
+	background-color: var(--color-primary);
+}
+
+.wrapper {
+	display: flex;
+	justify-content: space-between;
+	padding: var(--12px) 0 var(--12px) 0;
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+	gap: var(--8px);
+}
+
+.hamburger {
+	border: none;
+	background-color: transparent;
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+:global(.desktop).header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}

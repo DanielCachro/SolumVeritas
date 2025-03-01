@@ -1,0 +1,6 @@
+#root {
+	max-width: 1540px;
+	margin: 0 auto;
+	--root-pading: var(--32px);
+	padding: 0 var(--root-pading) 0 var(--root-pading);
+}
