@@ -1,0 +1,19 @@
+.button {
+	padding: var(--12px) var(--48px);
+	margin-left: auto;
+	border: none;
+	border-radius: 200px;
+	color: var(--color-primary);
+	background-color: var(--color-accent);
+	transition: background-color 0.3s;
+
+	&:hover,
+	&:focus {
+		cursor: pointer;
+		background-color: var(--color-accent-light);
+	}
+}
+
+.shadow {
+	box-shadow: var(--shadow-default);
+}

@@ -1,0 +1,90 @@
+.section {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	padding-top: var(--32px);
+	padding-bottom: var(--32px);
+}
+
+.aboutBox {
+	border-bottom: 1px solid var(--color-heading-separator);
+	margin-bottom: var(--48px);
+
+	& h1 {
+		font-size: 28px;
+		font-weight: var(--font-weight-semibold);
+		margin-bottom: var(--12px);
+	}
+
+	& button {
+		margin: var(--32px) 0 var(--48px) 0;
+	}
+}
+
+.image {
+	width: 100%;
+	max-width: var(--384px);
+}
+
+.contactBox {
+	display: flex;
+	flex-direction: column;
+	gap: var(--16px);
+	margin-top: var(--48px);
+
+	& div:last-child {
+		& p {
+			font-size: 20px;
+			font-weight: var(--font-weight-medium);
+		}
+	}
+}
+
+@media (min-width: 628px) {
+	.image {
+		max-width: var(--256px);
+		margin-right: var(--64px);
+	}
+}
+
+@media (min-width: 768px) {
+	.section {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+		column-gap: var(--64px);
+		justify-content: center;
+	}
+
+	.image {
+		order: 1;
+		max-width: var(--640px);
+		grid-area: 1 / 1 / -1 / 1;
+		margin: 0;
+	}
+
+	.aboutBox,
+	.contactBox {
+		order: 2;
+		max-width: var(--512px);
+	}
+
+	.aboutBox {
+		grid-area: 1 / 2 / 1 / -2;
+		margin: 0;
+	}
+
+	.contactBox {
+		grid-area: 2 / 2 / -1 / -1;
+	}
+}
+
+@media (min-width: 1200px) {
+	.section {
+		column-gap: var(--192px);
+	}
+
+	.image {
+		align-self: center;
+	}
+}

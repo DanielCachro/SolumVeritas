@@ -1,3 +1,5 @@
+import EntrySection from '../components/home/EntrySection'
+
 export default function HomePage() {
-	return <p>This is home</p>
+	return <EntrySection></EntrySection>
 }
