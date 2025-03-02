@@ -1,8 +1,8 @@
 import {useState, useEffect, useRef} from 'react'
 import classes from './Header.module.css'
-import MainNavigation from '../MainNavigation/MainNavigation'
+import MainNavigation from './MainNavigation/MainNavigation'
 
-import logo from '../../assets/Logo.svg'
+import logo from '@/assets/Logo.svg'
 import {Menu} from 'lucide-react'
 
 const mediaQuery = window.matchMedia('(max-width: 1280px)')
