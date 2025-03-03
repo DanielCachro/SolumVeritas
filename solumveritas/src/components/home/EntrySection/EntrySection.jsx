@@ -13,7 +13,16 @@ export default function EntrySection() {
 					życia działa pro bono, niosąc pomoc i wsparcie. Posiadamy doświadczenie w organizowaniu poszukiwań, także w
 					najtrudniejszych warunkach.
 				</p>
-				<PrimaryButton title='O Nas' />
+				<PrimaryButton
+					onClick={() => {
+						const element = document.getElementById('about')
+						if (element) {
+							const elementPosition = element.getBoundingClientRect().top + window.scrollY
+							window.scrollTo({top: elementPosition - 100})
+						}
+					}}
+					title='O Nas'
+				/>
 			</div>
 			<img
 				className={classes.image}

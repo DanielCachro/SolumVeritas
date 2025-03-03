@@ -10,7 +10,7 @@ export default function Section() {
 	return (
 		<section className={`${classes.section} ${!isMobile ? 'desktop' : ''}`.trim()}>
 			<div className='wrapper'>
-				<div className={classes.box}>
+				<div className={classes.box} id='about'>
 					<div className={classes.box__content}>
 						<div className={classes.box__header}>
 							<p>Nasze Stowarzyszenie</p>

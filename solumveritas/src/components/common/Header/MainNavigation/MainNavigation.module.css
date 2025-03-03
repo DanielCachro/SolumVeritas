@@ -28,7 +28,7 @@
 	gap: var(--8px);
 
 	a {
-		font-size: 14px;
+		font-size: var(--14px);
 	}
 }
 
@@ -82,7 +82,7 @@
 :global(.desktop) {
 	.menu {
 		display: flex;
-		flex-wrap: wrap;
+		/* flex-wrap: wrap; */
 		align-items: center;
 		gap: var(--48px);
 	}
@@ -128,6 +128,11 @@
 	.linkWrapper {
 		display: flex;
 		gap: var(--4px);
+		align-items: center;
+
+		svg {
+			width: var(--24px);
+		}
 
 		&:hover,
 		&:focus-visible {

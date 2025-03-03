@@ -1,8 +1,5 @@
 :root {
-	--font-weight-bold: 700;
-	--font-weight-semibold: 600;
-	--font-weight-medium: 500;
-	--font-weight-regular: 400;
+	/* Colors */
 
 	--color-accent: #102a4c;
 	--color-accent-light: #0a4481;
@@ -15,9 +12,13 @@
 	--color-nav-separator: #f4f4f4;
 	--color-heading-separator: rgba(151, 151, 151, 0.6);
 
+	/* Shadows */
+
 	--shadow-default: 0px 4px 8px 0px rgba(114, 114, 114, 0.25);
 	--shadow-soft: 0px 4px 40px 0px rgba(0, 0, 0, 0.1);
 	--shadow-elevated: 0px 4px 8px 4px rgba(192, 189, 189, 0.25);
+
+	/* Sizing System Rems */
 
 	--4px: 0.25rem;
 	--8px: 0.5rem;
@@ -35,4 +36,16 @@
 	--512px: 32rem;
 	--640px: 40rem;
 	--768px: 48rem;
+
+	/* Font Related Rems */
+	--14px: 0.875rem;
+	--20px: 1.25rem;
+	--28px: 1.75rem;
+	--36px: 2.25rem;
+
+	/* Font Weights */
+	--font-weight-bold: 700;
+	--font-weight-semibold: 600;
+	--font-weight-medium: 500;
+	--font-weight-regular: 400;
 }
