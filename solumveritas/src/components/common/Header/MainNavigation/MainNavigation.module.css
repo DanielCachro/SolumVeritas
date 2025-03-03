@@ -27,7 +27,7 @@
 	flex-direction: column;
 	gap: var(--8px);
 
-	& a {
+	a {
 		font-size: 14px;
 	}
 }
@@ -119,6 +119,10 @@
 
 	.submenu {
 		position: absolute;
+		padding: var(--16px);
+		background-color: var(--color-primary);
+		border-radius: 8px;
+		box-shadow: var(--shadow-default);
 	}
 
 	.linkWrapper {
@@ -161,7 +165,7 @@
 	}
 }
 
-@media (min-width: 1345px) {
+@media (min-width: 1365px) {
 	.nav {
 		width: 82%;
 	}

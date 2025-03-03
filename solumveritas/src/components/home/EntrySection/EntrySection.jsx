@@ -1,11 +1,11 @@
-import PrimaryButton from '../common/PrimaryButton/PrimaryButton'
+import PrimaryButton from '../../common/PrimaryButton/PrimaryButton'
 import classes from './EntrySection.module.css'
 
 import entrySectionPictures from '@/assets/EntrySectionPictures.png'
 
 export default function EntrySection() {
 	return (
-		<section className={classes.section}>
+		<section className={`wrapper ${classes.section}`}>
 			<div className={classes.aboutBox}>
 				<h1>Solum Veritas</h1>
 				<p>

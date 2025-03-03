@@ -1,6 +1,10 @@
 #root {
-	max-width: 1540px;
-	margin: 0 auto;
 	--root-pading: var(--32px);
+	--root-max-width: 1540px;
+}
+
+.wrapper {
+	max-width: var(--root-max-width);
 	padding: 0 var(--root-pading) 0 var(--root-pading);
+	margin: 0 auto;
 }
