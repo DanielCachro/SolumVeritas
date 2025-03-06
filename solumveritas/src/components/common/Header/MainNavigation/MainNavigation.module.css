@@ -82,7 +82,6 @@
 :global(.desktop) {
 	.menu {
 		display: flex;
-		/* flex-wrap: wrap; */
 		align-items: center;
 		gap: var(--48px);
 	}
@@ -162,7 +161,7 @@
 			}
 		}
 
-		&:has(a:focus),
+		&:has(a:focus-visible),
 		&:hover {
 			background-color: var(--color-accent-light);
 			cursor: pointer;

@@ -1,5 +1,5 @@
 .section {
-	margin: var(--256px) 0 var(--256px) 0;
+	margin: var(--256px) 0 0 0;
 	background-color: red;
 	background-color: var(--color-accent);
 }
