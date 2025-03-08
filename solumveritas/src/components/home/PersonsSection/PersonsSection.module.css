@@ -167,3 +167,14 @@
 		}
 	}
 }
+
+@media (min-width: 1400px) {
+	.carousel {
+		.carousel__header {
+			h2 {
+				font-size: var(--28px);
+				font-weight: var(--font-weight-semibold);
+			}
+		}
+	}
+}

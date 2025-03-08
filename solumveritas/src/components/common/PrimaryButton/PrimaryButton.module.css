@@ -1,4 +1,6 @@
-.button {
+.primaryButton {
+	width: fit-content;
+	height: fit-content;
 	padding: var(--12px) var(--48px);
 	margin-left: auto;
 	border: none;
@@ -10,6 +12,7 @@
 	&:hover,
 	&:focus-visible {
 		cursor: pointer;
+		outline: none;
 		background-color: var(--color-accent-light);
 	}
 }

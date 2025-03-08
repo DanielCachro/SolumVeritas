@@ -1,0 +1,19 @@
+.article {
+	display: flex;
+	flex-direction: row;
+	gap: var(--32px);
+	max-width: var(--768px);
+
+	img {
+		align-self: center;
+		max-width: var(--256px);
+		max-height: calc(var(--256px) / 1.5);
+		border-radius: 8px;
+	}
+
+	.article__content {
+		display: flex;
+		flex-direction: column;
+		gap: var(--24px);
+	}
+}

@@ -99,6 +99,11 @@
 
 		.team {
 			gap: var(--192px);
+
+			h2 {
+				font-size: var(--28px);
+				font-weight: var(--font-weight-semibold);
+			}
 		}
 	}
 }

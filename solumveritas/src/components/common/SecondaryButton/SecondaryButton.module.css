@@ -1,0 +1,39 @@
+.secondaryButton {
+	display: flex;
+	gap: var(--8px);
+	width: fit-content;
+	height: fit-content;
+	padding: var(--4px) var(--12px);
+	background-color: transparent;
+	color: var(--color-secondary-button);
+	border: 1.5px solid var(--color-secondary-button);
+	border-radius: 4px;
+	transition: background-color 0.3s, color 0.3s;
+
+	svg {
+		transition: transform 0.3s;
+	}
+
+	&:hover,
+	&:focus-visible {
+		cursor: pointer;
+		outline: none;
+		background-color: var(--color-secondary-button);
+		color: var(--color-primary);
+
+		svg {
+			transform: translateX(3px);
+		}
+	}
+
+	&.secondaryButton_whiteVariant {
+		color: var(--color-primary);
+		border-color: var(--color-stroke);
+
+		&:hover,
+		&:focus-visible {
+			background-color: var(--color-primary);
+			color: var(--color-secondary-button);
+		}
+	}
+}
