@@ -9,7 +9,7 @@ import {Menu} from 'lucide-react'
 export default function Header() {
 	const [navOpen, setNavOpen] = useState(false)
 	const headerRef = useRef()
-	const isMobile = useMediaQuery('max-width: 1300px')
+	const isMobile = useMediaQuery('max-width: 1200px')
 
 	useEffect(() => {
 		headerRef.current?.classList.toggle('mobile', isMobile)

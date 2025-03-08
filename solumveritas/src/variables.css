@@ -1,19 +1,22 @@
 :root {
 	/* Colors */
 
+	--color-primary: #ffffff;
+	--color-secondary: #030303;
 	--color-accent: #102a4c;
 	--color-accent-light: #0a4481;
 
-	--color-primary: #ffffff;
-	--color-secondary: #030303;
+	--color-gray-text: #a4a7ae;
 
 	--color-disabled: #979797;
 	--color-secondary-button: #0d3868;
 
 	--color-stroke: #c1c1c1;
 	--color-input: #f5f5f5;
+
 	--color-nav-separator: #f4f4f4;
 	--color-heading-separator: rgba(151, 151, 151, 0.6);
+	--color-footer-separator: rgba(255, 255, 255, 0.2);
 
 	/* Shadows */
 
