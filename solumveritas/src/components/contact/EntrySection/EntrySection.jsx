@@ -1,23 +1,27 @@
+import {Mail} from 'lucide-react'
+import useMediaQuery from '@/hooks/useMediaQuery'
+import blueDressedWoman from '@/assets/BlueDressedWoman.jpg'
 import classes from './EntrySection.module.css'
 
-import {Mail} from 'lucide-react'
-import blueDressedWoman from '@/assets/BlueDressedWoman.jpg'
-
 export default function EntrySection() {
+	const isMobile = useMediaQuery('max-width: 790px')
+
 	return (
-		<section className='wrapper'>
+		<section className={`wrapper ${classes.wrapper}`}>
 			<div className={classes.content}>
-				<h1>Kontakt</h1>
-				<p>Masz jakieś pytania lub potrzebujesz pomocy?</p>
-				<p>Skontaktuj się z nami.</p>
-				<div>
+				<div className={classes.header}>
+					<h1>Kontakt</h1>
+					<div className={classes.texts}>
+						<p>Masz jakieś pytania lub potrzebujesz pomocy?</p>
+						<p>Skontaktuj się z nami!</p>
+					</div>
+				</div>
+				<div className={classes.emailBox}>
 					<Mail strokeWidth={1.5} />
-					<p>
-						<a href='mailto:biuro@solumveritas.org'>biuro@solumveritas.org</a>
-					</p>
+					<a href='mailto:biuro@solumveritas.org'>biuro@solumveritas.org</a>
 				</div>
 			</div>
-			<img src={blueDressedWoman} alt='Uśmiechnięta kobieta ubrana na niebiesko' />
+			{!isMobile && <img src={blueDressedWoman} alt='Uśmiechnięta kobieta ubrana na niebiesko' />}
 		</section>
 	)
 }

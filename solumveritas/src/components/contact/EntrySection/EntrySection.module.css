@@ -1,0 +1,82 @@
+.wrapper {
+	display: flex;
+	justify-content: center;
+	padding-top: var(--32px);
+	padding-bottom: var(--32px);
+
+	.content {
+		display: flex;
+		flex-direction: column;
+		gap: var(--32px);
+		max-width: 18.25rem;
+
+		.header {
+			display: flex;
+			flex-direction: column;
+			gap: var(--12px);
+
+			h1 {
+				font-size: var(--28px);
+				font-weight: var(--font-weight-semibold);
+			}
+
+			.texts {
+				display: flex;
+				flex-direction: column;
+				gap: var(--8px);
+
+				p {
+					text-wrap: wrap;
+				}
+			}
+		}
+
+		.emailBox {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: var(--12px);
+			width: fit-content;
+			padding: var(--32px);
+			background-color: var(--color-accent);
+			border-radius: 8px;
+			box-shadow: var(--shadow-default);
+
+			svg {
+				color: var(--color-primary);
+			}
+
+			a {
+				color: var(--color-primary);
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+@media (min-width: 790px) {
+	.wrapper {
+		display: flex;
+		gap: var(--64px);
+
+		img {
+			width: 50%;
+			aspect-ratio: 2;
+			max-width: var(--768px);
+			max-height: var(--384px);
+			object-fit: cover;
+			object-position: 50% 37%;
+			border-radius: 8px;
+			box-shadow: var(--shadow-default);
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.wrapper {
+		gap: var(--192px);
+		align-items: center;
+		padding-top: var(--128px);
+		padding-bottom: var(--128px);
+	}
+}
