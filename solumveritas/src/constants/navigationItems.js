@@ -34,6 +34,6 @@ export const navigationItems = [
 	},
 	{
 		title: 'Kontakt',
-		link: '#',
+		link: '/contact',
 	},
 ]

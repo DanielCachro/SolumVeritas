@@ -147,13 +147,13 @@
 	.link:last-child {
 		display: flex;
 		align-items: center;
-		padding: var(--12px) var(--48px);
 		margin-left: auto;
 		border-radius: 200px;
 		background-color: var(--color-accent);
 		transition: background-color 0.3s;
 
 		a {
+			padding: var(--12px) var(--48px);
 			color: var(--color-primary);
 
 			&::after {

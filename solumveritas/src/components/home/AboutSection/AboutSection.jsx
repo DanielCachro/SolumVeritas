@@ -1,8 +1,8 @@
 import classes from './AboutSection.module.css'
 import useMediaQuery from '@/hooks/useMediaQuery'
 
-import blueDressedWoman from '@/assets/AboutSection_BlueDressedWoman.jpg'
-import Puzzles from '@/assets/AboutSection_Puzzles.png'
+import blueDressedWoman from '@/assets/BlueDressedWoman.jpg'
+import Puzzles from '@/assets/Puzzles.png'
 
 export default function Section() {
 	const isMobile = useMediaQuery('max-width: 1200px')

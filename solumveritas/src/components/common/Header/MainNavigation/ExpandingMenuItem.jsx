@@ -1,9 +1,14 @@
-import {useEffect, useRef, useState} from 'react'
+import {useEffect, useRef, useState, useContext} from 'react'
+import {NavLink} from 'react-router'
 import {ArrowDown} from 'lucide-react'
+
+import {NavigationContext} from '../Header'
 
 export default function ExpandingMenuItem({item, classes}) {
 	const [isOpen, setIsOpen] = useState(false)
 	const buttonRef = useRef(null)
+
+	const {toggleNavigation} = useContext(NavigationContext)
 
 	useEffect(() => {
 		function handleClickOutside(e) {
@@ -26,7 +31,9 @@ export default function ExpandingMenuItem({item, classes}) {
 				<ul className={classes.submenu}>
 					{item.children.map(item => (
 						<li key={item.title}>
-							<a href={item.link}>{item.title}</a>
+							<NavLink onClick={toggleNavigation} to={item.link}>
+								{item.title}
+							</NavLink>
 						</li>
 					))}
 				</ul>

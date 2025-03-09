@@ -1,10 +1,15 @@
-import {useState, useRef, useEffect} from 'react'
-import useMediaQuery from '@/hooks/useMediaQuery'
-import classes from './Header.module.css'
-import MainNavigation from './MainNavigation/MainNavigation'
-
-import logo from '@/assets/Logo.svg'
+import {useState, useRef, useEffect, createContext} from 'react'
+import {NavLink} from 'react-router'
 import {Menu} from 'lucide-react'
+
+import useMediaQuery from '@/hooks/useMediaQuery'
+
+import MainNavigation from './MainNavigation/MainNavigation'
+import logo from '@/assets/Logo.svg'
+
+import classes from './Header.module.css'
+
+export const NavigationContext = createContext()
 
 export default function Header() {
 	const [navOpen, setNavOpen] = useState(false)
@@ -16,27 +21,40 @@ export default function Header() {
 		headerRef.current?.classList.toggle('desktop', !isMobile)
 	}, [isMobile])
 
+	function toggleNavigation() {
+		setNavOpen(open => !open)
+	}
+
+	const contextValue = {
+		isNavOpen: navOpen,
+		toggleNavigation,
+	}
+
 	return (
-		<header ref={headerRef} className={`${classes.header}`}>
-			<div className={classes.wrapper}>
-				<div className={classes.container}>
-					<div className={classes.logo}>
-						<img src={logo} alt='Logo Solum Veritas'></img>
-						<p>Solum Veritas</p>
+		<NavigationContext.Provider value={contextValue}>
+			<header ref={headerRef} className={`${classes.header}`}>
+				<div className={classes.wrapper}>
+					<div className={classes.container}>
+						<NavLink to='/'>
+							<div className={classes.logo}>
+								<img src={logo} alt='Logo Solum Veritas'></img>
+								<p>Solum Veritas</p>
+							</div>
+						</NavLink>
+						{isMobile && (
+							<button className={classes.hamburger}>
+								<Menu
+									onClick={() => {
+										setNavOpen(open => !open)
+									}}
+									color='#717680'
+								/>
+							</button>
+						)}
 					</div>
-					{isMobile && (
-						<button className={classes.hamburger}>
-							<Menu
-								onClick={() => {
-									setNavOpen(open => !open)
-								}}
-								color='#717680'
-							/>
-						</button>
-					)}
+					{(!isMobile || navOpen) && <MainNavigation />}
 				</div>
-				{(!isMobile || navOpen) && <MainNavigation />}
-			</div>
-		</header>
+			</header>
+		</NavigationContext.Provider>
 	)
 }

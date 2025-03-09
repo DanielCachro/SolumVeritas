@@ -1,8 +1,9 @@
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 
 import './App.css'
-import HomePage from './routes/Home'
 import RootLayout from './routes/Root'
+import HomePage from './routes/Home'
+import ContactPage from './routes/Contact'
 
 const router = createBrowserRouter([
 	{
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
 			{
 				index: true,
 				element: <HomePage />,
+			},
+			{
+				path: 'contact',
+				element: <ContactPage />,
 			},
 		],
 	},

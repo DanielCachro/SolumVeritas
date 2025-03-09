@@ -1,5 +1,7 @@
-import {navigationItems} from '@/constants/navigationItems'
+import {NavLink} from 'react-router'
+
 import classes from './Footer.module.css'
+import {navigationItems} from '@/constants/navigationItems'
 
 import facebook from '@/assets/facebook.svg'
 
@@ -13,15 +15,15 @@ export default function Footer() {
 							.filter(item => !item.children)
 							.map(item => (
 								<li key={item.title}>
-									<a href={item.link}>{item.title}</a>
+									<NavLink to={item.link}>{item.title}</NavLink>
 								</li>
 							))}
 					</menu>
 					<ul className={classes.links__socials}>
 						<li>
-							<a href='https://www.facebook.com/groups/766233760532401/' target='_blank' rel='noreferrer'>
+							<NavLink to='https://www.facebook.com/groups/766233760532401/' target='_blank' rel='noreferrer'>
 								<img src={facebook} alt='Ikona facebooka' />
-							</a>
+							</NavLink>
 						</li>
 					</ul>
 				</div>
@@ -42,7 +44,7 @@ export default function Footer() {
 								.flatMap(item => item.children)
 								.map(child => (
 									<li key={child.title}>
-										<a href={child.link}>{child.title}</a>
+										<NavLink to={child.link}>{child.title}</NavLink>
 									</li>
 								))}
 						</menu>

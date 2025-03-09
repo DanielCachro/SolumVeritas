@@ -8,25 +8,30 @@
 
 .wrapper {
 	padding: var(--12px) var(--root-pading) var(--12px) var(--root-pading);
-}
 
-.container {
-	display: flex;
-	justify-content: space-between;
-}
+	a {
+		color: var(--color-secondary);
+		text-decoration: none;
+	}
 
-.logo {
-	display: flex;
-	align-items: center;
-	gap: var(--8px);
-}
+	.container {
+		display: flex;
+		justify-content: space-between;
 
-.hamburger {
-	border: none;
-	background-color: transparent;
+		.logo {
+			display: flex;
+			align-items: center;
+			gap: var(--8px);
+		}
 
-	&:hover {
-		cursor: pointer;
+		.hamburger {
+			border: none;
+			background-color: transparent;
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
 	}
 }
 
