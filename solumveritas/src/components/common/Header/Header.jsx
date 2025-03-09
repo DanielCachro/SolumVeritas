@@ -23,6 +23,7 @@ export default function Header() {
 
 	function toggleNavigation() {
 		setNavOpen(open => !open)
+		window.scrollTo(0, 0)
 	}
 
 	const contextValue = {
@@ -35,7 +36,11 @@ export default function Header() {
 			<header ref={headerRef} className={`${classes.header}`}>
 				<div className={classes.wrapper}>
 					<div className={classes.container}>
-						<NavLink to='/'>
+						<NavLink
+							onClick={() => {
+								window.scrollTo(0, 0)
+							}}
+							to='/'>
 							<div className={classes.logo}>
 								<img src={logo} alt='Logo Solum Veritas'></img>
 								<p>Solum Veritas</p>

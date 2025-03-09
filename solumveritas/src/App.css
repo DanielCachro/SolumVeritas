@@ -9,3 +9,7 @@
 	padding: 0 var(--root-pading) 0 var(--root-pading);
 	margin: 0 auto;
 }
+
+main {
+	min-height: calc(100vh - 21.5rem - 4.5rem);
+}

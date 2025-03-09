@@ -18,7 +18,7 @@ export default function EntrySection() {
 						const element = document.getElementById('about')
 						if (element) {
 							const elementPosition = element.getBoundingClientRect().top + window.scrollY
-							window.scrollTo({top: elementPosition - 100})
+							window.scrollTo({top: elementPosition - 100, behavior: 'smooth'})
 						}
 					}}
 					title='O Nas'

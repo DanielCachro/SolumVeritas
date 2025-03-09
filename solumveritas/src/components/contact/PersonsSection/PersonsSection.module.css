@@ -1,0 +1,23 @@
+.persons {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	padding: 0;
+	padding-top: var(--48px);
+	padding-bottom: var(--96px);
+	gap: var(--48px);
+}
+
+@media (min-width: 996px) {
+	.persons {
+		padding-top: var(--64px);
+	}
+}
+
+@media (min-width: 1200px) {
+	.persons {
+		padding-bottom: var(--192px);
+	}
+}

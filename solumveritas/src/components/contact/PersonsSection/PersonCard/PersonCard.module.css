@@ -1,0 +1,87 @@
+.card {
+	display: flex;
+	flex-direction: column;
+	gap: var(--8px);
+	width: 19.5rem;
+	padding: var(--32px) var(--24px);
+	box-shadow: var(--shadow-default);
+	border-radius: var(--16px);
+
+	figure {
+		display: flex;
+		flex-direction: column;
+		gap: var(--8px);
+
+		img {
+			width: var(--192px);
+			aspect-ratio: 1/1;
+			object-fit: cover;
+			border-radius: 8px;
+			box-shadow: var(--shadow-default);
+		}
+
+		figcaption {
+			font-size: var(--28px);
+			font-weight: var(--font-weight-semibold);
+		}
+	}
+
+	.card__operationalArea {
+		p:first-child {
+			color: var(--color-gray-text);
+		}
+	}
+
+	.card__emailBox {
+		display: flex;
+		gap: var(--8px);
+		width: fit-content;
+		margin-top: var(--16px);
+		background-color: var(--color-input);
+		border: 1px solid var(--color-stroke);
+		border-radius: var(--4px);
+
+		a {
+			padding: var(--4px) var(--8px);
+			color: var(--color-secondary);
+			text-decoration: none;
+		}
+
+		.card__copy {
+			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-grow: 1;
+			width: var(--32px);
+			color: var(--color-primary);
+			background-color: var(--color-accent);
+			border: none;
+			border-radius: 0 var(--4px) var(--4px) 0;
+			transition: background-color 0.3s;
+
+			&:hover {
+				cursor: pointer;
+				background-color: var(--color-accent-light);
+			}
+		}
+
+		.card__emailCopied {
+			position: absolute;
+			top: calc(-1 * var(--64px));
+			width: fit-content;
+			padding: var(--16px);
+			color: var(--color-secondary);
+			background-color: var(--color-primary);
+			opacity: 0.9;
+			box-shadow: var(--shadow-default);
+			border-radius: 8px;
+		}
+
+		.card__emailCopied_error {
+			min-width: var(--256px);
+			top: calc(-1 * var(--128px));
+			right: calc(-1 * var(--96px));
+		}
+	}
+}
