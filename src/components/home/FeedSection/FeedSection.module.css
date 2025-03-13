@@ -19,6 +19,14 @@
 			background-color: var(--color-secondary);
 		}
 	}
+
+	ul {
+		list-style: none;
+	}
+}
+
+:global(.loader) {
+	margin-left: var(--24px);
 }
 
 .cards {
@@ -32,6 +40,10 @@
 @media (min-width: 464px) {
 	.section {
 		align-items: center;
+	}
+
+	:global(.loader) {
+		margin-left: 0;
 	}
 }
 

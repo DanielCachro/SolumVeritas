@@ -5,7 +5,7 @@ export async function loadFeed(query) {
 	const response = await fetch(`${API_URL}/feeds?${query}`)
 
 	if (!response.ok) {
-		return {isError: true, message: 'Could not fetch feeds.'}
+		throw new Error('Could not fetch feeds.')
 	}
 
 	const resData = await response.json()

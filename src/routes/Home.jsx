@@ -34,5 +34,10 @@ export async function loader() {
 		}
 	)
 
-	return {feed: loadFeed(feedQuery)}
+	try {
+		const feed = loadFeed(feedQuery)
+		return {feed}
+	} catch (error) {
+		return {error: error.message}
+	}
 }
