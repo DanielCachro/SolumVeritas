@@ -1,0 +1,36 @@
+.card {
+	height: 100%;
+	max-width: var(--384px);
+	padding: var(--12px);
+	padding-bottom: 0;
+	list-style: none;
+	box-shadow: var(--shadow-elevated);
+	border-radius: 8px;
+
+	img {
+		max-height: var(--256px);
+		aspect-ratio: 1.4;
+		object-fit: cover;
+		border-radius: 8px;
+	}
+
+	.card__content {
+		display: flex;
+		flex-direction: column;
+		gap: var(--24px);
+		padding: var(--32px) var(--12px);
+	}
+
+	.card__header {
+		p {
+			font-size: var(--14px);
+			font-weight: var(--font-weight-regular);
+			color: var(--color-gray-text-light);
+		}
+
+		h3 {
+			font-size: var(--20px);
+			font-weight: var(--font-weight-medium);
+		}
+	}
+}
