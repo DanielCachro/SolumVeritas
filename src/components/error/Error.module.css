@@ -1,0 +1,14 @@
+.section {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: var(--24px);
+	width: 100vw;
+	height: 100vh;
+	background-color: var(--color-accent);
+	color: var(--color-primary);
+	img {
+		border-radius: 4px;
+	}
+}

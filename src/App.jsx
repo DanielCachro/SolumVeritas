@@ -2,6 +2,7 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 
 import './App.css'
 import RootLayout from './routes/Root'
+import Error from './routes/Error'
 import HomePage, {loader as HomePageLoader} from './routes/Home'
 import ContactPage, {loader as ContactPageLoader} from './routes/Contact'
 
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
 				loader: ContactPageLoader,
 			},
 		],
+		errorElement: <Error />,
 	},
 ])
 
