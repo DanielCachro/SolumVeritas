@@ -1,13 +1,21 @@
 const API_URL = 'http://localhost:1337/api'
 export const IMAGES_URL = 'http://localhost:1337'
 
-export async function loadFeed(query) {
-	const response = await fetch(`${API_URL}/feeds?${query}`)
+async function fetchData(endpoint, query) {
+	const response = await fetch(`${API_URL}/${endpoint}?${query}`)
 
 	if (!response.ok) {
-		throw new Error('Could not fetch feeds.')
+		throw new Error(`Could not fetch ${endpoint}.`)
 	}
 
 	const resData = await response.json()
 	return resData
+}
+
+export async function loadFeed(query) {
+	return await fetchData('feeds', query)
+}
+
+export async function loadCases(query) {
+	return await fetchData('cases', query)
 }

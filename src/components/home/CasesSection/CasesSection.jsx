@@ -1,16 +1,19 @@
+import {Suspense} from 'react'
+import {Await, useLoaderData} from 'react-router-dom'
+
 import useMediaQuery from '@/hooks/useMediaQuery'
-import classes from './CasesSection.module.css'
-import SecondaryButton from '@/components/common/SecondaryButton/SecondaryButton'
+import {IMAGES_URL} from '@/util/http'
+
 import CasesSectionArticle from './CasesSectionArticle/CasesSectionArticle'
+import SecondaryButton from '@/components/common/SecondaryButton/SecondaryButton'
 
 import anetaGrabowska from '@/assets/persons/aneta_grabowska_1.jpg'
 import monikaKonopkoKarazniewicz from '@/assets/persons/monika_konopko_karaźniewicz_1.jpg'
 import juliaRomanska from '@/assets/persons/julia_romańska_1.jpg'
-
-import firstArticleCover from '@/assets/articles/article1.jpg'
-import secondArticleCover from '@/assets/articles/article1.jpg'
+import classes from './CasesSection.module.css'
 
 export default function CasesSection() {
+	const {cases} = useLoaderData()
 	const isDesktop = useMediaQuery('min-width: 992px')
 	return (
 		<section className={classes.section}>
@@ -31,18 +34,29 @@ export default function CasesSection() {
 					<SecondaryButton className={classes.button} title='Nasze Sprawy' whiteVariant={true} />
 				</div>
 				{isDesktop && (
-					<div className={classes.articles}>
-						<CasesSectionArticle
-							title='Zaginiona odnaleziona - kulisy akcji ratunkowej'
-							text='Nasze działania doprowadziły do szczęśliwego zakończenia poszukiwań. Dzięki współpracy specjalistów i wolontariuszy udało się odnaleźć zaginioną osobę i zapewnić jej bezpieczeństwo'
-							cover={firstArticleCover}
-						/>
-						<CasesSectionArticle
-							title='Determinacja, która przyniosła rezultat'
-							text='Nasze działania doprowadziły do szczęśliwego zakończenia poszukiwań. Dzięki współpracy specjalistów i wolontariuszy udało się odnaleźć zaginioną osobę i zapewnić jej bezpieczeństwo'
-							cover={secondArticleCover}
-						/>
-					</div>
+					<Suspense>
+						<ul className={classes.articles}>
+							<Await
+								resolve={cases}
+								errorElement={
+									<li className={classes.error}>
+										Nie udało sie pobrać naszych spraw. <br /> Spróbuj ponownie później.
+									</li>
+								}>
+								{resolvedCases =>
+									resolvedCases.data.map(article => (
+										<CasesSectionArticle
+											key={article.documentId}
+											cover={`${IMAGES_URL}${article.cover.url}`}
+											title={article.title}
+											description={article.description}
+											articlePath={`/nasze-sprawy/${article.slug}`}
+										/>
+									))
+								}
+							</Await>
+						</ul>
+					</Suspense>
 				)}
 			</div>
 		</section>

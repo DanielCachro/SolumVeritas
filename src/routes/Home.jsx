@@ -6,6 +6,7 @@ import CasesSection from '../components/home/CasesSection/CasesSection'
 import FeedSection from '../components/home/FeedSection/FeedSection'
 
 import {loadFeed} from '@/util/http'
+import {loadCases} from '../util/http'
 
 export default function HomePage() {
 	return (
@@ -20,23 +21,39 @@ export default function HomePage() {
 }
 
 export async function loader() {
-	const feedQuery = qs.stringify(
-		{
-			pagination: {
-				start: 0,
-				limit: 3,
+	const queries = {
+		feed: qs.stringify(
+			{
+				pagination: {
+					start: 0,
+					limit: 3,
+				},
+				sort: ['publishedAt:desc'],
+				populate: ['blocks', 'cover'],
 			},
-			sort: ['publishedAt:desc'],
-			populate: ['blocks', 'cover'],
-		},
-		{
-			encodeValuesOnly: true,
-		}
-	)
+			{
+				encodeValuesOnly: true,
+			}
+		),
+		cases: qs.stringify(
+			{
+				pagination: {
+					start: 0,
+					limit: 2,
+				},
+				sort: ['publishedAt:desc'],
+				populate: ['blocks', 'cover'],
+			},
+			{
+				encodeValuesOnly: true,
+			}
+		),
+	}
 
 	try {
-		const feed = loadFeed(feedQuery)
-		return {feed}
+		const feed = loadFeed(queries.feed)
+		const cases = loadCases(queries.cases)
+		return {feed, cases}
 	} catch (error) {
 		return {error: error.message}
 	}

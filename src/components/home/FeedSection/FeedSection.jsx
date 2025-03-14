@@ -14,7 +14,13 @@ export default function FeedSection() {
 			<h2>Aktualności</h2>
 			<Suspense fallback={<Loader />}>
 				<ul className={classes.cards}>
-					<Await resolve={feed} errorElement={<li>Could not fetch feeds.</li>}>
+					<Await
+						resolve={feed}
+						errorElement={
+							<li>
+								Nie udało sie pobrać aktualności. <br /> Spróbuj ponownie później.
+							</li>
+						}>
 						{resolvedFeed =>
 							resolvedFeed.data.map(article => {
 								return (
