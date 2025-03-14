@@ -1,12 +1,11 @@
 import qs from 'qs'
+import {loadFeed, loadCases, loadPersons} from '@/util/http'
 import EntrySection from '../components/home/EntrySection/EntrySection'
 import AboutSection from '../components/home/AboutSection/AboutSection'
 import PersonsSection from '../components/home/PersonsSection/PersonsSection'
 import CasesSection from '../components/home/CasesSection/CasesSection'
 import FeedSection from '../components/home/FeedSection/FeedSection'
 
-import {loadFeed} from '@/util/http'
-import {loadCases, loadPersons} from '../util/http'
 
 export default function HomePage() {
 	return (

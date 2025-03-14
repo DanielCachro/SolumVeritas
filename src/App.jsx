@@ -3,7 +3,7 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import './App.css'
 import RootLayout from './routes/Root'
 import HomePage, {loader as HomePageLoader} from './routes/Home'
-import ContactPage from './routes/Contact'
+import ContactPage, {loader as ContactPageLoader} from './routes/Contact'
 
 const router = createBrowserRouter([
 	{
@@ -16,8 +16,9 @@ const router = createBrowserRouter([
 				loader: HomePageLoader,
 			},
 			{
-				path: 'contact',
+				path: 'kontakt',
 				element: <ContactPage />,
+				loader: ContactPageLoader,
 			},
 		],
 	},

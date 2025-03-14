@@ -1,6 +1,6 @@
+import {useRef, useState} from 'react'
 import {Copy, MailCheck, MailWarning} from 'lucide-react'
 import classes from './PersonCard.module.css'
-import {useRef, useState} from 'react'
 
 export default function PersonCard({name, phone, image, email, operationalArea}) {
 	const [emailCopied, setEmailCopied] = useState(false)
@@ -35,7 +35,7 @@ export default function PersonCard({name, phone, image, email, operationalArea})
 			<p>{phone}</p>
 			<div className={classes.card__operationalArea}>
 				<p>Obszar działań:</p>
-				<p>{operationalArea.join(', ')}</p>
+				<p>{operationalArea.map(voivodeship => voivodeship.trim()).join(', ')}</p>
 			</div>
 			<div className={classes.card__emailBox}>
 				<a href={`mailto:${email}`}>{`${email.split('@')[0]}...`}</a>
