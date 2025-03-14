@@ -19,3 +19,7 @@ export async function loadFeed(query) {
 export async function loadCases(query) {
 	return await fetchData('cases', query)
 }
+
+export async function loadPersons(query) {
+	return await fetchData('members', query)
+}

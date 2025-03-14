@@ -6,7 +6,7 @@ import CasesSection from '../components/home/CasesSection/CasesSection'
 import FeedSection from '../components/home/FeedSection/FeedSection'
 
 import {loadFeed} from '@/util/http'
-import {loadCases} from '../util/http'
+import {loadCases, loadPersons} from '../util/http'
 
 export default function HomePage() {
 	return (
@@ -48,12 +48,21 @@ export async function loader() {
 				encodeValuesOnly: true,
 			}
 		),
+		persons: qs.stringify(
+			{
+				populate: ['image'],
+			},
+			{
+				encodeValuesOnly: true,
+			}
+		),
 	}
 
 	try {
 		const feed = loadFeed(queries.feed)
 		const cases = loadCases(queries.cases)
-		return {feed, cases}
+		const persons = loadPersons(queries.persons)
+		return {feed, cases, persons}
 	} catch (error) {
 		return {error: error.message}
 	}
