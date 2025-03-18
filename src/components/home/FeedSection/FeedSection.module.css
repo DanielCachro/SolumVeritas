@@ -34,7 +34,9 @@
 	justify-content: center;
 	flex-wrap: wrap;
 	gap: var(--48px);
+	max-width: 100%;
 	padding: 0;
+
 }
 
 @media (min-width: 464px) {

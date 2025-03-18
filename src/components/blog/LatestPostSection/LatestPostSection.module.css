@@ -49,6 +49,13 @@
 	}
 }
 
+.loader {
+	display: flex;
+	justify-content: center;
+	padding-top: var(--32px);
+	margin-right: 12px;
+}
+
 @media (min-width: 768px) {
 	.imageContainer {
 		height: var(--512px);
@@ -57,6 +64,7 @@
 	.headerBox {
 		left: var(--48px);
 		width: fit-content;
+		max-width: var(--512px);
 		transform: translateX(0);
 		bottom: -8%;
 	}

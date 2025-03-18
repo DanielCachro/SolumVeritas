@@ -1,0 +1,115 @@
+.section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--48px);
+	padding-top: var(--16px);
+	padding-bottom: var(--192px);
+
+	h1 {
+		font-size: var(--20px);
+		font-weight: var(--font-weight-medium);
+	}
+
+	h1::after {
+		content: '';
+		display: block;
+		width: var(--48px);
+		height: 2px;
+		background-color: var(--color-secondary);
+		margin-top: var(--8px);
+	}
+}
+
+.posts {
+	display: flex;
+	flex-direction: column;
+	gap: var(--96px);
+	max-width: 100%;
+
+	.posts__cards {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: var(--48px);
+		justify-content: center;
+		padding: 0;
+	}
+
+	.posts__pagination {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border-top: 1px solid var(--color-nav-separator);
+		padding: var(--24px) 0;
+	}
+
+	.posts__paginationNumbers {
+		display: flex;
+		gap: var(--24px);
+		padding: 0;
+		list-style: none;
+
+		li {
+			width: var(--32px);
+			height: var(--32px);
+			transition: background-color 0.3s;
+			border-radius: 8px;
+
+			button {
+				height: 100%;
+				width: 100%;
+				background: none;
+				border: none;
+			}
+
+			&:hover {
+				background-color: var(--color-accent-bright);
+
+				button {
+					cursor: pointer;
+				}
+			}
+		}
+	}
+
+	.posts__activeNumber {
+		background-color: var(--color-accent-bright);
+	}
+
+	.posts__paginationButton {
+		display: flex;
+		gap: var(--8px);
+		background: none;
+		border: none;
+
+		&:disabled {
+			pointer-events: none;
+			opacity: 0.6;
+		}
+
+		&:hover,
+		&:focus-visible {
+			color: var(--color-accent-light);
+			cursor: pointer;
+		}
+	}
+}
+
+@media (min-width: 1400px) {
+	.section {
+		padding-top: var(--96px);
+		gap: var(--64px);
+
+		h1 {
+			font-size: var(--28px);
+			font-weight: var(--font-weight-semibold);
+
+			&::after {
+				width: var(--64px);
+				height: 2px;
+				margin-top: var(--16px);
+			}
+		}
+	}
+}

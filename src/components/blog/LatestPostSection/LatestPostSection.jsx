@@ -7,6 +7,8 @@ import calculateReadTime from '@/util/calculateReadTime.js'
 import getMinuteString from '@/util/getMinuteString.js'
 import classes from './LatestPostSection.module.css'
 
+import Loader from '@/components/common/Loader/Loader'
+
 export default function LatestPostSection() {
 	const navigate = useNavigate()
 
@@ -23,29 +25,34 @@ export default function LatestPostSection() {
 		}
 	)
 
-	const {data: queryData} = useQuery({
+	const {data: queryData, isPending} = useQuery({
 		queryKey: ['feed', 'latestPost'],
 		queryFn: () => loadFeed(query),
 		staleTime: 5000,
 	})
 
-	console.log(queryData)
+	const latestPost = queryData?.data[0]
 
 	return (
 		<section className={`wrapper ${classes.section}`}>
-			<div
-				className={classes.imageContainer}
-				style={{backgroundImage: `url(${IMAGES_URL}${queryData?.data[0].cover.url})`}}>
-				<button
-					className={classes.headerBox}
-					onClick={() => {
-						navigate(`${queryData?.data[0].slug}`)
-					}}>
-					<p>{`
-						Przeczytasz w ${getMinuteString(calculateReadTime(queryData?.data[0].blocks))}`}</p>
-					<h2>{queryData?.data[0].title}</h2>
-				</button>
-			</div>
+			{!isPending && (
+				<div className={classes.imageContainer} style={{backgroundImage: `url(${IMAGES_URL}${latestPost.cover.url})`}}>
+					<button
+						className={classes.headerBox}
+						onClick={() => {
+							navigate(`${latestPost.slug}`)
+						}}>
+						<p>{`
+						Przeczytasz w ${getMinuteString(calculateReadTime(latestPost.blocks))}`}</p>
+						<h2>{latestPost.title}</h2>
+					</button>
+				</div>
+			)}
+			{isPending && (
+				<div className={classes.loader}>
+					<Loader />
+				</div>
+			)}
 		</section>
 	)
 }
