@@ -3,7 +3,7 @@ import {loadPersons} from '@/util/http'
 import EntrySection from '../components/contact/EntrySection/EntrySection'
 import PersonsSection from '../components/contact/PersonsSection/PersonsSection'
 
-export default function Contact() {
+export default function ContactPage() {
 	return (
 		<>
 			<EntrySection />

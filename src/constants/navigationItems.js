@@ -5,7 +5,7 @@ export const navigationItems = [
 	},
 	{
 		title: 'Aktualności',
-		link: '#',
+		link: 'aktualnosci',
 	},
 	{
 		title: 'Nasze Sprawy',

@@ -13,7 +13,7 @@ export default function Error() {
 				<p>{`Błąd: ${error.status === 404 ? 'Nie znaleziono strony.' : error.message}`}</p>
 				<img src={sadCat} alt='Płaczący kotek' />
 				<SecondaryButton
-					title='Strona główna'
+					title='Strona Główna'
 					whiteVariant
 					onClick={() => {
 						navigate('/')
