@@ -1,5 +1,5 @@
 import {Suspense} from 'react'
-import {Await, useLoaderData} from 'react-router-dom'
+import {Await, useLoaderData, useNavigate} from 'react-router-dom'
 
 import useMediaQuery from '@/hooks/useMediaQuery'
 import {IMAGES_URL} from '@/util/http'
@@ -13,8 +13,10 @@ import juliaRomanska from '@/assets/persons/julia_romańska_1.jpg'
 import classes from './CasesSection.module.css'
 
 export default function CasesSection() {
+	const navigate = useNavigate()
 	const {cases} = useLoaderData()
 	const isDesktop = useMediaQuery('min-width: 992px')
+
 	return (
 		<section className={classes.section}>
 			<div className={`wrapper ${classes.wrapper}`}>
@@ -31,7 +33,12 @@ export default function CasesSection() {
 						dzieląc się historiami i doświadczeniami, które mogą pomóc innym. Przeczytaj je na naszej stronie i dowiedz
 						się, jak działamy, by przywracać nadzieję i łączyć bliskich.
 					</p>
-					<SecondaryButton className={classes.button} title='Nasze Sprawy' whiteVariant={true} />
+					<SecondaryButton
+						className={classes.button}
+						title='Nasze Sprawy'
+						whiteVariant={true}
+						onClick={() => navigate('/nasze-sprawy')}
+					/>
 				</div>
 				{isDesktop && (
 					<Suspense>

@@ -9,7 +9,7 @@ export const navigationItems = [
 	},
 	{
 		title: 'Nasze Sprawy',
-		link: '#',
+		link: 'nasze-sprawy',
 	},
 	{
 		title: 'Dokumenty',

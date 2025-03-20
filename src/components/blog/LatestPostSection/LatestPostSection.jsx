@@ -1,16 +1,17 @@
 import qs from 'qs'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, useParams} from 'react-router-dom'
 import {useQuery} from '@tanstack/react-query'
-import {loadFeed} from '@/util/http.js'
-import {IMAGES_URL} from '@/util/http'
+import {loadFeed, loadCases, IMAGES_URL} from '@/util/http.js'
 import calculateReadTime from '@/util/calculateReadTime.js'
 import getMinuteString from '@/util/getMinuteString.js'
+import Loader from '@/components/common/Loader/Loader'
 import classes from './LatestPostSection.module.css'
 
-import Loader from '@/components/common/Loader/Loader'
+
 
 export default function LatestPostSection() {
 	const navigate = useNavigate()
+	const {blogType} = useParams()
 
 	const query = qs.stringify(
 		{
@@ -31,8 +32,8 @@ export default function LatestPostSection() {
 		isError,
 		error,
 	} = useQuery({
-		queryKey: ['feed', 'latestPost'],
-		queryFn: () => loadFeed(query),
+		queryKey: ['feed', 'latestPost', blogType],
+		queryFn: () => (blogType === 'aktualnosci' ? loadFeed(query) : loadCases(query)),
 		staleTime: 60000,
 	})
 

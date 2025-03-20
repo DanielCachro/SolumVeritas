@@ -36,11 +36,7 @@ export default function Header() {
 			<header ref={headerRef} className={`${classes.header}`}>
 				<div className={classes.wrapper}>
 					<div className={classes.container}>
-						<NavLink
-							onClick={() => {
-								window.scrollTo(0, 0)
-							}}
-							to='/'>
+						<NavLink to='/'>
 							<div className={classes.logo}>
 								<img src={logo} alt='Logo Solum Veritas'></img>
 								<p>Solum Veritas</p>

@@ -7,7 +7,7 @@ import RootLayout from './routes/Root'
 import Error from './routes/Error'
 import HomePage, {loader as HomePageLoader} from './routes/Home'
 import ContactPage, {loader as ContactPageLoader} from './routes/Contact'
-import FeedPage from './routes/Feed'
+import ArticlesPage from './routes/Articles'
 import ArticlePage, {loader as ArticleLoader} from './routes/Article'
 
 const router = createBrowserRouter([
@@ -26,8 +26,8 @@ const router = createBrowserRouter([
 				loader: ContactPageLoader,
 			},
 			{
-				path: 'aktualnosci',
-				element: <FeedPage />,
+				path: ':blogType',
+				element: <ArticlesPage />,
 			},
 			{
 				path: ':blogType/:slug',

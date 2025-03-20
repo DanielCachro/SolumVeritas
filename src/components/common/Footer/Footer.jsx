@@ -15,13 +15,7 @@ export default function Footer() {
 							.filter(item => !item.children)
 							.map(item => (
 								<li key={item.title}>
-									<NavLink
-										onClick={() => {
-											window.scrollTo(0, 0)
-										}}
-										to={item.link}>
-										{item.title}
-									</NavLink>
+									<NavLink to={item.link}>{item.title}</NavLink>
 								</li>
 							))}
 					</menu>
@@ -50,13 +44,7 @@ export default function Footer() {
 								.flatMap(item => item.children)
 								.map(child => (
 									<li key={child.title}>
-										<NavLink
-											onClick={() => {
-												window.scrollTo(0, 0)
-											}}
-											to={child.link}>
-											{child.title}
-										</NavLink>
+										<NavLink to={child.link}>{child.title}</NavLink>
 									</li>
 								))}
 						</menu>

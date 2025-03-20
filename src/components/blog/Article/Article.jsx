@@ -12,8 +12,6 @@ import TextBlock from './blocks/TextBlock/TextBlock'
 export default function Article() {
 	const article = useLoaderData()
 
-	console.log(article)
-
 	return (
 		<section className={classes.section}>
 			<div className={classes.header}>

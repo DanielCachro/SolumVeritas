@@ -1,16 +1,21 @@
 import {useEffect, useRef, useState} from 'react'
+import {useParams} from 'react-router-dom'
 import {keepPreviousData, useQuery} from '@tanstack/react-query'
 import qs from 'qs'
 import {MoveLeft, MoveRight} from 'lucide-react'
-import {queryClient, loadFeed, IMAGES_URL} from '@/util/http'
+import {queryClient, loadFeed, loadCases, IMAGES_URL} from '@/util/http'
 import calculateReadTime from '@/util/calculateReadTime'
 import ArticleCard from '@/components/common/ArticleCard/ArticleCard'
-import classes from './PostsSection.module.css'
-
 import Loader from '@/components/common/Loader/Loader'
+import classes from './PostsSection.module.css'
 
 export default function PostsSection() {
 	const [page, setPage] = useState(1)
+	const {blogType} = useParams()
+
+	useEffect(() => {
+		setPage(1)
+	}, [blogType])
 
 	const postsRef = useRef(null)
 	const scrollToPosts = () => {
@@ -38,8 +43,8 @@ export default function PostsSection() {
 		isError,
 		error,
 	} = useQuery({
-		queryKey: ['feed', page],
-		queryFn: () => loadFeed(query),
+		queryKey: ['feed', page, blogType],
+		queryFn: () => (blogType === 'aktualnosci' ? loadFeed(query) : loadCases(query)),
 		placeholderData: keepPreviousData,
 		staleTime: 60000,
 	})
@@ -101,7 +106,7 @@ export default function PostsSection() {
 
 	return (
 		<section ref={postsRef} className={`wrapper ${classes.section}`}>
-			<h1>Aktualności</h1>
+			<h1>{blogType === 'aktualnosci' ? 'Aktualności' : 'Nasze Sprawy'}</h1>
 			<div className={classes.posts}>
 				{!isFetching && (
 					<>
