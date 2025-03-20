@@ -7,6 +7,8 @@ import calculateReadTime from '@/util/calculateReadTime'
 import ArticleCard from '@/components/common/ArticleCard/ArticleCard'
 import classes from './PostsSection.module.css'
 
+import Loader from '@/components/common/Loader/Loader'
+
 export default function PostsSection() {
 	const [page, setPage] = useState(1)
 
@@ -29,12 +31,25 @@ export default function PostsSection() {
 		}
 	)
 
-	const {data: queryData, isPlaceholderData} = useQuery({
+	const {
+		data: queryData,
+		isPlaceholderData,
+		isFetching,
+		isError,
+		error,
+	} = useQuery({
 		queryKey: ['feed', page],
 		queryFn: () => loadFeed(query),
 		placeholderData: keepPreviousData,
 		staleTime: 60000,
+		onError: error => {
+			console.error(error)
+		},
 	})
+
+	if (isError) {
+		throw new Error(error.message)
+	}
 
 	const {pageCount} = queryData?.meta.pagination || {}
 
@@ -91,49 +106,54 @@ export default function PostsSection() {
 		<section ref={postsRef} className={`wrapper ${classes.section}`}>
 			<h1>Aktualności</h1>
 			<div className={classes.posts}>
-				<ul className={classes.posts__cards}>
-					{queryData?.data.map(article => (
-						<ArticleCard
-							key={article.documentId}
-							readTimeInMinutes={calculateReadTime(article.blocks)}
-							cover={`${IMAGES_URL}${article.cover.url}`}
-							title={article.title}
-							description={article.description}
-							articlePath={article.slug}
-						/>
-					))}
-				</ul>
-				<div className={classes.posts__pagination}>
-					<button
-						className={classes.posts__paginationButton}
-						onClick={() => {
-							handlePageChange(page - 1)
-						}}
-						disabled={page === 1}>
-						<MoveLeft strokeWidth={1.5} /> Wstecz
-					</button>
-					<menu className={classes.posts__paginationNumbers}>
-						{paginationNumbers.map(number => (
-							<li key={number} className={number === page ? classes.posts__activeNumber : ''}>
-								<button
-									onClick={() => {
-										scrollToPosts()
-										handlePageChange(number)
-									}}>
-									{number}
-								</button>
-							</li>
-						))}
-					</menu>
-					<button
-						className={classes.posts__paginationButton}
-						onClick={() => {
-							handlePageChange(page + 1)
-						}}
-						disabled={page === pageCount}>
-						Dalej <MoveRight strokeWidth={1.5} />
-					</button>
-				</div>
+				{!isFetching && (
+					<>
+						<ul className={classes.posts__cards}>
+							{queryData?.data.map(article => (
+								<ArticleCard
+									key={article.documentId}
+									readTimeInMinutes={calculateReadTime(article.blocks)}
+									cover={`${IMAGES_URL}${article.cover.url}`}
+									title={article.title}
+									description={article.description}
+									articlePath={article.slug}
+								/>
+							))}
+						</ul>
+						<div className={classes.posts__pagination}>
+							<button
+								className={classes.posts__paginationButton}
+								onClick={() => {
+									handlePageChange(page - 1)
+								}}
+								disabled={page === 1}>
+								<MoveLeft strokeWidth={1.5} /> Wstecz
+							</button>
+							<menu className={classes.posts__paginationNumbers}>
+								{paginationNumbers.map(number => (
+									<li key={number} className={number === page ? classes.posts__activeNumber : ''}>
+										<button
+											onClick={() => {
+												scrollToPosts()
+												handlePageChange(number)
+											}}>
+											{number}
+										</button>
+									</li>
+								))}
+							</menu>
+							<button
+								className={classes.posts__paginationButton}
+								onClick={() => {
+									handlePageChange(page + 1)
+								}}
+								disabled={page === pageCount}>
+								Dalej <MoveRight strokeWidth={1.5} />
+							</button>
+						</div>
+					</>
+				)}
+				{isFetching && <Loader />}
 			</div>
 		</section>
 	)

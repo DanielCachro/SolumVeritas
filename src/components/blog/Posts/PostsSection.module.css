@@ -98,7 +98,7 @@
 
 @media (min-width: 1400px) {
 	.section {
-		padding-top: var(--96px);
+		padding-top: var(--64px);
 		gap: var(--64px);
 
 		h1 {

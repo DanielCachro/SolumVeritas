@@ -25,26 +25,35 @@ export default function LatestPostSection() {
 		}
 	)
 
-	const {data: queryData, isPending} = useQuery({
+	const {
+		data: queryData,
+		isPending,
+		isError,
+		error,
+	} = useQuery({
 		queryKey: ['feed', 'latestPost'],
 		queryFn: () => loadFeed(query),
 		staleTime: 5000,
 	})
+
+	if (isError) {
+		throw new Error(error.message)
+	}
 
 	const latestPost = queryData?.data[0]
 
 	return (
 		<section className={`wrapper ${classes.section}`}>
 			{!isPending && (
-				<div className={classes.imageContainer} style={{backgroundImage: `url(${IMAGES_URL}${latestPost.cover.url})`}}>
+				<div className={classes.imageContainer} style={{backgroundImage: `url(${IMAGES_URL}${latestPost?.cover.url})`}}>
 					<button
 						className={classes.headerBox}
 						onClick={() => {
-							navigate(`${latestPost.slug}`)
+							navigate(`${latestPost?.slug}`)
 						}}>
 						<p>{`
-						Przeczytasz w ${getMinuteString(calculateReadTime(latestPost.blocks))}`}</p>
-						<h2>{latestPost.title}</h2>
+						Przeczytasz w ${getMinuteString(calculateReadTime(latestPost?.blocks))}`}</p>
+						<h2>{latestPost?.title}</h2>
 					</button>
 				</div>
 			)}
