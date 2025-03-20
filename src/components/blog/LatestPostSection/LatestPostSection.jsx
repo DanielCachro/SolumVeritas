@@ -15,7 +15,7 @@ export default function LatestPostSection() {
 	const query = qs.stringify(
 		{
 			populate: ['blocks', 'cover'],
-			sort: ['publishedAt:desc'],
+			sort: ['createdAt:desc'],
 			pagination: {
 				limit: 1,
 			},
@@ -33,7 +33,7 @@ export default function LatestPostSection() {
 	} = useQuery({
 		queryKey: ['feed', 'latestPost'],
 		queryFn: () => loadFeed(query),
-		staleTime: 5000,
+		staleTime: 60000,
 	})
 
 	if (isError) {

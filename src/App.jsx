@@ -8,6 +8,7 @@ import Error from './routes/Error'
 import HomePage, {loader as HomePageLoader} from './routes/Home'
 import ContactPage, {loader as ContactPageLoader} from './routes/Contact'
 import FeedPage from './routes/Feed'
+import ArticlePage, {loader as ArticleLoader} from './routes/Article'
 
 const router = createBrowserRouter([
 	{
@@ -27,6 +28,11 @@ const router = createBrowserRouter([
 			{
 				path: 'aktualnosci',
 				element: <FeedPage />,
+			},
+			{
+				path: ':blogType/:slug',
+				element: <ArticlePage />,
+				loader: ArticleLoader,
 			},
 		],
 		errorElement: <Error />,

@@ -1,0 +1,10 @@
+.textBlock {
+	display: flex;
+	flex-direction: column;
+	gap: var(--24px);
+
+	.textBlock__title {
+		font-size: var(--20px);
+		font-weight: var(--font-weight-medium);
+	}
+}

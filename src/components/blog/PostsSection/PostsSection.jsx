@@ -20,7 +20,7 @@ export default function PostsSection() {
 	const query = qs.stringify(
 		{
 			populate: ['blocks', 'cover'],
-			sort: ['publishedAt:desc'],
+			sort: ['createdAt:desc'],
 			pagination: {
 				page: page,
 				pageSize: 6,
@@ -42,9 +42,6 @@ export default function PostsSection() {
 		queryFn: () => loadFeed(query),
 		placeholderData: keepPreviousData,
 		staleTime: 60000,
-		onError: error => {
-			console.error(error)
-		},
 	})
 
 	if (isError) {

@@ -6,7 +6,6 @@ import PersonsSection from '../components/home/PersonsSection/PersonsSection'
 import CasesSection from '../components/home/CasesSection/CasesSection'
 import FeedSection from '../components/home/FeedSection/FeedSection'
 
-
 export default function HomePage() {
 	return (
 		<>
@@ -27,7 +26,7 @@ export async function loader() {
 					start: 0,
 					limit: 3,
 				},
-				sort: ['publishedAt:desc'],
+				sort: ['createdAt:desc'],
 				populate: ['blocks', 'cover'],
 			},
 			{
@@ -40,7 +39,7 @@ export async function loader() {
 					start: 0,
 					limit: 2,
 				},
-				sort: ['publishedAt:desc'],
+				sort: ['createdAt:desc'],
 				populate: ['blocks', 'cover'],
 			},
 			{
