@@ -7,8 +7,6 @@ import getMinuteString from '@/util/getMinuteString.js'
 import Loader from '@/components/common/Loader/Loader'
 import classes from './LatestPostSection.module.css'
 
-
-
 export default function LatestPostSection() {
 	const navigate = useNavigate()
 	const {blogType} = useParams()

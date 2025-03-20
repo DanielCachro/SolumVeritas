@@ -28,6 +28,13 @@ const router = createBrowserRouter([
 			{
 				path: ':blogType',
 				element: <ArticlesPage />,
+				loader: async ({params}) => {
+					const allowedBlogTypes = ['aktualnosci', 'nasze-sprawy']
+					if (!allowedBlogTypes.includes(params.blogType)) {
+						throw new Response('Not Found', {status: 404})
+					}
+					return null
+				},
 			},
 			{
 				path: ':blogType/:slug',

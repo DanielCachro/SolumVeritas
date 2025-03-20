@@ -35,8 +35,13 @@ export async function loader({params}) {
 
 	try {
 		const queryData = await (blogType === 'aktualnosci' ? loadFeed(query) : loadCases(query))
-		return queryData?.data[0] || null
+
+		if (!queryData?.data[0]) {
+			throw new Response('Not Found', {status: 404})
+		}
+
+		return queryData?.data[0]
 	} catch {
-		throw new Error(`Nie udało się załadować artykułu.`)
+		throw new Error(`Nie udało się znaleźć artykułu.`)
 	}
 }
