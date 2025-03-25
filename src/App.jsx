@@ -10,10 +10,6 @@ import ContactPage from './routes/Contact'
 import ArticlesPage from './routes/Articles'
 import ArticlePage from './routes/Article'
 
-function lazyImportLoader(route) {
-	return () => import(/* @vite-ignore */ route).then(module => module.loader())
-}
-
 const router = createBrowserRouter([
 	{
 		path: '/',
@@ -22,12 +18,12 @@ const router = createBrowserRouter([
 			{
 				index: true,
 				element: <HomePage />,
-				loader: lazyImportLoader('./routes/Home'),
+				loader: () => import('./routes/Home').then(module => module.loader()),
 			},
 			{
 				path: 'kontakt',
 				element: <ContactPage />,
-				loader: lazyImportLoader('./routes/Contact'),
+				loader: () => import('./routes/Contact').then(module => module.loader()),
 			},
 			{
 				path: ':blogType',
@@ -43,7 +39,7 @@ const router = createBrowserRouter([
 			{
 				path: ':blogType/:slug',
 				element: <ArticlePage />,
-				loader: lazyImportLoader('./routes/Article'),
+				loader: () => import('./routes/Article').then(module => module.loader()),
 			},
 		],
 		errorElement: <Error />,
