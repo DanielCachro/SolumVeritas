@@ -34,7 +34,7 @@ export default function Footer() {
 							KRS: <span className={classes.grayText}>0001025724</span>
 						</p>
 						<p>
-							Regon <span className={classes.grayText}>525076181</span>
+							Regon: <span className={classes.grayText}>525076181</span>
 						</p>
 					</div>
 					<div className={classes.information__links}>

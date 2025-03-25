@@ -11,7 +11,7 @@ import classes from './MainNavigation.module.css'
 export default function MainNavigation() {
 	const {toggleNavigation} = useContext(NavigationContext)
 	return (
-		<nav className={`${classes.nav}`}>
+		<nav id='main-navigation' className={`${classes.nav}`}>
 			<menu className={classes.menu}>
 				{navigationItems.map(item => (
 					<li key={item.title} className={classes.link}>

@@ -43,7 +43,7 @@ export default function Header() {
 							</div>
 						</NavLink>
 						{isMobile && (
-							<button className={classes.hamburger}>
+							<button className={classes.hamburger} aria-expanded={navOpen} aria-controls='main-navigation'>
 								<Menu
 									onClick={() => {
 										setNavOpen(open => !open)
