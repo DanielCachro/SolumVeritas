@@ -30,7 +30,7 @@ export const navigationItems = [
 	},
 	{
 		title: 'Pomoc',
-		link: '#',
+		link: '/pomoc',
 	},
 	{
 		title: 'Kontakt',

@@ -9,6 +9,10 @@ import FeedSection from '../components/home/FeedSection/FeedSection'
 export default function HomePage() {
 	return (
 		<>
+			<meta
+				name='description'
+				content='Wspieramy osoby dotknięte zaginięciami. Nasz zespół specjalistów działa pro bono, organizując poszukiwania i niosąc pomoc rodzinom zaginionych.'
+			/>
 			<EntrySection />
 			<AboutSection />
 			<PersonsSection />

@@ -1,9 +1,14 @@
 import qs from 'qs'
+import {useLoaderData} from 'react-router-dom'
 import {loadFeed, loadCases} from '@/util/http.js'
 import Article from '../components/blog/Article/Article'
 export default function ArticlePage() {
+	const {title, description} = useLoaderData()
+
 	return (
 		<>
+			<title>{`Solum Veritas | ${title}`}</title>
+			<meta name='description' content={description} />
 			<Article />
 		</>
 	)
