@@ -5,10 +5,14 @@ import {queryClient} from '@/util/http.js'
 import './App.css'
 import RootLayout from './routes/Root'
 import Error from './routes/Error'
-import HomePage, {loader as HomePageLoader} from './routes/Home'
-import ContactPage, {loader as ContactPageLoader} from './routes/Contact'
+import HomePage from './routes/Home'
+import ContactPage from './routes/Contact'
 import ArticlesPage from './routes/Articles'
-import ArticlePage, {loader as ArticleLoader} from './routes/Article'
+import ArticlePage from './routes/Article'
+
+function lazyImportLoader(route) {
+	return () => import(/* @vite-ignore */ route).then(module => module.loader())
+}
 
 const router = createBrowserRouter([
 	{
@@ -18,12 +22,12 @@ const router = createBrowserRouter([
 			{
 				index: true,
 				element: <HomePage />,
-				loader: HomePageLoader,
+				loader: lazyImportLoader('./routes/Home'),
 			},
 			{
 				path: 'kontakt',
 				element: <ContactPage />,
-				loader: ContactPageLoader,
+				loader: lazyImportLoader('./routes/Contact'),
 			},
 			{
 				path: ':blogType',
@@ -39,7 +43,7 @@ const router = createBrowserRouter([
 			{
 				path: ':blogType/:slug',
 				element: <ArticlePage />,
-				loader: ArticleLoader,
+				loader: lazyImportLoader('./routes/Article'),
 			},
 		],
 		errorElement: <Error />,

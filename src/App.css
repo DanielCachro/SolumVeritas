@@ -13,3 +13,10 @@
 main {
 	min-height: calc(100vh - 21.5rem - 4.5rem);
 }
+
+.page-loader {
+	position: fixed;
+	top: var(--192px);
+	left: calc(50% - 24px);
+	transform: translateX(-50%);
+}
