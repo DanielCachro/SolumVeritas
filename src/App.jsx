@@ -8,7 +8,7 @@ import Error from './routes/Error'
 import HomePage from './routes/Home'
 import ContactPage from './routes/Contact'
 import ArticlesPage from './routes/Articles'
-import ArticlePage from './routes/Article'
+import ArticlePage, {loader as articleLoader} from './routes/Article'
 
 const router = createBrowserRouter([
 	{
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
 			{
 				path: ':blogType/:slug',
 				element: <ArticlePage />,
-				loader: () => import('./routes/Article').then(module => module.loader()),
+				loader: articleLoader,
 			},
 		],
 		errorElement: <Error />,
