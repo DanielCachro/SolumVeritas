@@ -6,7 +6,12 @@ export const IMAGES_URL = import.meta.env.VITE_IMAGES_URL || 'http://localhost:1
 export const queryClient = new QueryClient()
 
 async function fetchData(endpoint, query) {
-	const response = await fetch(`${API_URL}/${endpoint}?${query}`)
+	const response = await fetch(`${API_URL}/${endpoint}?${query}`, {
+		headers: {
+			Authorization: `Bearer ${import.meta.env.VITE_READ_ONLY_TOKEN}`,
+			'Content-Type': 'application/json',
+		},
+	})
 
 	if (!response.ok) {
 		throw new Error(`Could not fetch ${endpoint}.`)
