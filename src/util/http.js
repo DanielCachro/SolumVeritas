@@ -6,11 +6,16 @@ export const IMAGES_URL = import.meta.env.VITE_IMAGES_URL || 'http://localhost:1
 export const queryClient = new QueryClient()
 
 async function fetchData(endpoint, query) {
+	const headers = {
+		'Content-Type': 'application/json',
+	}
+
+	if (import.meta.env.VITE_READ_ONLY_TOKEN) {
+		headers.Authorization = `Bearer ${import.meta.env.VITE_READ_ONLY_TOKEN}`
+	}
+
 	const response = await fetch(`${API_URL}/${endpoint}?${query}`, {
-		headers: {
-			Authorization: `Bearer ${import.meta.env.VITE_READ_ONLY_TOKEN}`,
-			'Content-Type': 'application/json',
-		},
+		headers,
 	})
 
 	if (!response.ok) {
