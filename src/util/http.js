@@ -1,7 +1,7 @@
 import {QueryClient} from '@tanstack/react-query'
 
-const API_URL = 'http://localhost:1337/api'
-export const IMAGES_URL = 'http://localhost:1337'
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:1337/api'
+export const IMAGES_URL = import.meta.env.VITE_IMAGES_URL || 'http://localhost:1337'
 
 export const queryClient = new QueryClient()
 
