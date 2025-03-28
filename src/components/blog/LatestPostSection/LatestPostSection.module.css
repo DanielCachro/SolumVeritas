@@ -37,6 +37,7 @@
 	h2 {
 		font-size: var(--20px);
 		font-weight: var(--font-weight-medium);
+		overflow-wrap: anywhere;
 	}
 
 	&:hover,

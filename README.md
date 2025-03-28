@@ -30,6 +30,7 @@ SolumVeritas/
 ├── .gitignore             # Git ignore rules
 ├── package.json           # Project dependencies and scripts
 ├── vite.config.js         # Vite configuration
+├── LICENCE                # Project LICENCE
 └── README.md              # Project documentation
 ```
 
@@ -97,14 +98,13 @@ npm run lint
 - [React](https://reactjs.org/) - Frontend library
 - [Vite](https://vitejs.dev/) - Build tool
 - [React Router](https://reactrouter.com/) - Routing library
-- [React Query](https://tanstack.com/query/latest) - Data fetching and caching
+- [TanStack Query](https://tanstack.com/query/latest) - Data fetching and caching
 - [Slick Carousel](https://react-slick.neostack.com/) - Carousel component
 - [Lucide React](https://lucide.dev/) - Icon library
 
 ## Image Credits
 
 Some of the photos used in this project were sourced from [Pixabay](https://pixabay.com/pl/) and [Freepik](https://pl.freepik.com/).
-
 
 ## License
 
@@ -117,4 +117,3 @@ This project was developed pro bono (free of charge) for **Solum Veritas**, a no
 Special thanks to the members of Solum Veritas for their collaboration and trust in this project.
 
 - **Design and Development**: Daniel Cachro
-```
