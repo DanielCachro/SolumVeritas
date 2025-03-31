@@ -1,5 +1,7 @@
 import {Suspense, useRef} from 'react'
 import {Await, useLoaderData} from 'react-router-dom'
+import {motion} from 'motion/react'
+import {fadeUpStaggerParentProps, fadeUpStaggerChild} from '@/constants/motionVariants'
 import {IMAGES_URL} from '@/util/http'
 import Slider from 'react-slick'
 import Loader from '@/components/common/Loader/Loader'
@@ -67,8 +69,8 @@ export default function PersonsSection() {
 						</div>
 					}>
 					{resolvedPersons => (
-						<div className={classes.carousel}>
-							<div className={classes.carousel__header}>
+						<motion.div className={classes.carousel} {...fadeUpStaggerParentProps}>
+							<motion.div className={classes.carousel__header} variants={fadeUpStaggerChild}>
 								<h2>Tworzą nas ludzie</h2>
 								<div className={classes.carousel__buttons}>
 									<CarouselButton
@@ -82,7 +84,7 @@ export default function PersonsSection() {
 										}}
 									/>
 								</div>
-							</div>
+							</motion.div>
 							<Slider
 								ref={slider => {
 									sliderRef = slider
@@ -90,16 +92,19 @@ export default function PersonsSection() {
 								className={classes.carousel__items}
 								{...settings}>
 								{resolvedPersons.data.map(person => (
-									<li className={classes.carousel__item} key={`${person.documentId}`}>
+									<motion.div
+										className={classes.carousel__item}
+										key={`${person.documentId}`}
+										variants={fadeUpStaggerChild}>
 										<figure>
 											<img src={`${IMAGES_URL}${person.image.url}`} alt={person.name} />
 											<figcaption>{person.name}</figcaption>
 										</figure>
 										<p>{person.description}</p>
-									</li>
+									</motion.div>
 								))}
 							</Slider>
-						</div>
+						</motion.div>
 					)}
 				</Await>
 			</Suspense>

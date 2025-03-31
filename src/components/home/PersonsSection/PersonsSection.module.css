@@ -84,7 +84,6 @@
 		flex-direction: column;
 		gap: var(--48px);
 		padding: 0;
-		list-style: none;
 	}
 
 	.carousel__item {

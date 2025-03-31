@@ -3,11 +3,11 @@ import getMinuteString from '@/util/getMinuteString'
 import SecondaryButton from '../SecondaryButton/SecondaryButton'
 import classes from './ArticleCard.module.css'
 
-export default function ArticleCard({CardContainer = 'li', readTimeInMinutes, cover, title, description, articlePath}) {
+export default function ArticleCard({CardContainer = 'li', readTimeInMinutes, cover, title, description, articlePath, ...props}) {
 	const navigate = useNavigate()
 
 	return (
-		<CardContainer className={classes.card}>
+		<CardContainer className={classes.card} {...props}>
 			<img src={cover} alt={`Okładka artykułu ${title}`}></img>
 			<div className={classes.card__content}>
 				<div className={classes.card__header}>

@@ -1,12 +1,14 @@
-import PrimaryButton from '../../common/PrimaryButton/PrimaryButton'
+import {motion} from 'motion/react'
+import {fadeUpStaggerParentProps, fadeUpStaggerChild} from '@/constants/motionVariants'
+import PrimaryButton from '@/components/common/PrimaryButton/PrimaryButton'
+import entrySectionPictures from '@/assets/EntrySectionPictures.png'
 import classes from './EntrySection.module.css'
 
-import entrySectionPictures from '@/assets/EntrySectionPictures.png'
 
 export default function EntrySection() {
 	return (
-		<section className={`wrapper ${classes.section}`}>
-			<div className={classes.aboutBox}>
+		<motion.section className={`wrapper ${classes.section}`} {...fadeUpStaggerParentProps}>
+			<motion.div className={classes.aboutBox} variants={fadeUpStaggerChild}>
 				<h1>Solum Veritas</h1>
 				<p>
 					Stowarzyszenie SOLUM VERITAS wspiera osoby dotknięte zaginięciami. Nasz zespół specjalistów z różnych dziedzin
@@ -23,13 +25,15 @@ export default function EntrySection() {
 					}}
 					title='O Nas'
 				/>
-			</div>
-			<img
+			</motion.div>
+			<motion.img
 				className={classes.image}
 				src={entrySectionPictures}
 				alt='Kolaż zdjęć zagubionych osób i osób w trakcie poszukiwań.'
+				variants={fadeUpStaggerChild}
+				whileHover={{scale: 1.05}}
 			/>
-			<div className={classes.contactBox}>
+			<motion.div className={classes.contactBox} variants={fadeUpStaggerChild}>
 				<div>
 					<h2>Potrzebujesz pomocy?</h2>
 					<p>Skontaktuj się z nami.</p>
@@ -38,7 +42,7 @@ export default function EntrySection() {
 					<p>+48 453 487 068</p>
 					<p>biuro@solumveritas.org</p>
 				</div>
-			</div>
-		</section>
+			</motion.div>
+		</motion.section>
 	)
 }

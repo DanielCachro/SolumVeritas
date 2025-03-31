@@ -1,8 +1,9 @@
-import classes from './AboutSection.module.css'
+import {motion} from 'motion/react'
 import useMediaQuery from '@/hooks/useMediaQuery'
-
+import {fadeUpStaggerParentProps, fadeUpStaggerChild} from '@/constants/motionVariants'
 import blueDressedWoman from '@/assets/BlueDressedWoman.jpg'
 import Puzzles from '@/assets/Puzzles.png'
+import classes from './AboutSection.module.css'
 
 export default function Section() {
 	const isMobile = useMediaQuery('max-width: 1200px')
@@ -10,8 +11,8 @@ export default function Section() {
 	return (
 		<section className={`${classes.section} ${!isMobile ? 'desktop' : ''}`.trim()}>
 			<div className='wrapper'>
-				<div className={classes.box} id='about'>
-					<div className={classes.box__content}>
+				<motion.div className={classes.box} id='about' {...fadeUpStaggerParentProps}>
+					<motion.div className={classes.box__content} variants={fadeUpStaggerChild}>
 						<div className={classes.box__header}>
 							<p>Nasze Stowarzyszenie</p>
 							<h2>Jak działamy?</h2>
@@ -27,11 +28,18 @@ export default function Section() {
 							lądzie i w wodzie we współpracy ze służbami m.in. OSP, Policją, PSP.
 						</p>
 						<p>&quot;Tylko życie poświęcone innym warte jest przeżycia&quot; - Albert Einstein</p>
-					</div>
-					{!isMobile && <img src={blueDressedWoman} alt='Uśmiechnięta kobieta ubrana na niebiesko'></img>}
-				</div>
-				<div className={classes.team}>
-					<div className={classes.team__content}>
+					</motion.div>
+					{!isMobile && (
+						<motion.img
+							src={blueDressedWoman}
+							alt='Uśmiechnięta kobieta ubrana na niebiesko'
+							className={classes.box__image}
+							variants={fadeUpStaggerChild}
+						/>
+					)}
+				</motion.div>
+				<motion.div className={classes.team} {...fadeUpStaggerParentProps}>
+					<motion.div className={classes.team__content} variants={fadeUpStaggerChild}>
 						<h2>Nasz zespół</h2>
 						<div>
 							<p>
@@ -52,9 +60,11 @@ export default function Section() {
 								zasilających naszą grupę wciąż się powiększa.
 							</p>
 						</div>
-					</div>
-					{!isMobile && <img src={Puzzles} alt='Puzzle'></img>}
-				</div>
+					</motion.div>
+					{!isMobile && (
+						<motion.img src={Puzzles} alt='Puzzle' className={classes.box__image} variants={fadeUpStaggerChild} />
+					)}
+				</motion.div>
 			</div>
 		</section>
 	)

@@ -116,4 +116,4 @@ This project was developed pro bono (free of charge) for **Solum Veritas**, a no
 
 Special thanks to the members of Solum Veritas for their collaboration and trust in this project.
 
-- **Design and Development**: Daniel Cachro
+**Design and Development**: Daniel Cachro

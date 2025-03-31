@@ -1,8 +1,11 @@
 import {Suspense} from 'react'
 import {Await, useLoaderData, useNavigate} from 'react-router-dom'
+import {motion} from 'motion/react'
 
 import useMediaQuery from '@/hooks/useMediaQuery'
 import {IMAGES_URL} from '@/util/http'
+
+import {fadeUpProps, fadeUpStaggerParentProps, fadeUpStaggerChild} from '@/constants/motionVariants'
 
 import CasesSectionArticle from './CasesSectionArticle/CasesSectionArticle'
 import SecondaryButton from '@/components/common/SecondaryButton/SecondaryButton'
@@ -20,7 +23,7 @@ export default function CasesSection() {
 	return (
 		<section className={classes.section}>
 			<div className={`wrapper ${classes.wrapper}`}>
-				<div className={classes.content}>
+				<motion.div className={classes.content} {...fadeUpProps}>
 					<h2>Pomagamy wrócić do domu.</h2>
 					<div className={classes.persons}>
 						<img src={anetaGrabowska} alt='Janina K., odnaleziona - 5 marca 2024' />
@@ -39,10 +42,10 @@ export default function CasesSection() {
 						whiteVariant={true}
 						onClick={() => navigate('/nasze-sprawy')}
 					/>
-				</div>
+				</motion.div>
 				{isDesktop && (
 					<Suspense>
-						<ul className={classes.articles}>
+						<motion.ul className={classes.articles} {...fadeUpStaggerParentProps}>
 							<Await
 								resolve={cases}
 								errorElement={
@@ -58,11 +61,13 @@ export default function CasesSection() {
 											title={article.title}
 											description={article.description}
 											articlePath={`/nasze-sprawy/${article.slug}`}
+											Container={motion.li}
+											variants={fadeUpStaggerChild}
 										/>
 									))
 								}
 							</Await>
-						</ul>
+						</motion.ul>
 					</Suspense>
 				)}
 			</div>
