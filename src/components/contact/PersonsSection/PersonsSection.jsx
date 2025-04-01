@@ -16,8 +16,11 @@ export default function PersonsSection() {
 					<PersonCard
 						CardContainer={motion.li}
 						key={person.id}
-						{...person}
+						name={person.name}
+						phone={person.phone}
 						image={`${IMAGES_URL}${person.image.url}`}
+						email={person.email}
+						operationalArea={person.operationalArea}
 						{...getFadeUpProps(true)}
 					/>
 				))}
