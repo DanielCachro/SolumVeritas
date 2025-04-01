@@ -1,6 +1,6 @@
 import {useState, useRef, useEffect, createContext} from 'react'
 import {NavLink} from 'react-router'
-import {Menu} from 'lucide-react'
+import {Menu, X} from 'lucide-react'
 
 import useMediaQuery from '@/hooks/useMediaQuery'
 
@@ -43,13 +43,14 @@ export default function Header() {
 							</div>
 						</NavLink>
 						{isMobile && (
-							<button className={classes.hamburger} aria-expanded={navOpen} aria-controls='main-navigation'>
-								<Menu
-									onClick={() => {
-										setNavOpen(open => !open)
-									}}
-									color='#717680'
-								/>
+							<button
+								className={classes.hamburger}
+								aria-expanded={navOpen}
+								aria-controls='main-navigation'
+								onClick={() => {
+									setNavOpen(open => !open)
+								}}>
+								{!navOpen ? <Menu color='#717680' /> : <X color='#717680' />}
 							</button>
 						)}
 					</div>
