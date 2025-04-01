@@ -2,7 +2,7 @@ import {useRef, useState} from 'react'
 import {Copy, MailCheck, MailWarning} from 'lucide-react'
 import classes from './PersonCard.module.css'
 
-export default function PersonCard({name, phone, image, email, operationalArea}) {
+export default function PersonCard({CardContainer = 'li', name, phone, image, email, operationalArea, ...props}) {
 	const [emailCopied, setEmailCopied] = useState(false)
 	const [emailFailedToCopy, setEmailFailedToCopy] = useState(false)
 
@@ -27,7 +27,7 @@ export default function PersonCard({name, phone, image, email, operationalArea})
 	}
 
 	return (
-		<li className={classes.card}>
+		<CardContainer className={classes.card} {...props}>
 			<figure>
 				<img src={image} alt={name} />
 				<figcaption>{name}</figcaption>
@@ -57,6 +57,6 @@ export default function PersonCard({name, phone, image, email, operationalArea})
 					)}
 				</button>
 			</div>
-		</li>
+		</CardContainer>
 	)
 }

@@ -1,5 +1,5 @@
 import {motion} from 'motion/react'
-import {fadeUpStaggerParentProps, fadeUpStaggerChild} from '@/constants/motionVariants'
+import {getFadeUpStaggerParentProps, fadeUpStaggerChild} from '@/constants/motionVariants'
 import PrimaryButton from '@/components/common/PrimaryButton/PrimaryButton'
 import entrySectionPictures from '@/assets/EntrySectionPictures.png'
 import classes from './EntrySection.module.css'
@@ -7,7 +7,7 @@ import classes from './EntrySection.module.css'
 
 export default function EntrySection() {
 	return (
-		<motion.section className={`wrapper ${classes.section}`} {...fadeUpStaggerParentProps}>
+		<motion.section className={`wrapper ${classes.section}`} {...getFadeUpStaggerParentProps()}>
 			<motion.div className={classes.aboutBox} variants={fadeUpStaggerChild}>
 				<h1>Solum Veritas</h1>
 				<p>

@@ -5,7 +5,7 @@ import {motion} from 'motion/react'
 import useMediaQuery from '@/hooks/useMediaQuery'
 import {IMAGES_URL} from '@/util/http'
 
-import {fadeUpProps, fadeUpStaggerParentProps, fadeUpStaggerChild} from '@/constants/motionVariants'
+import {getFadeUpProps, getFadeUpStaggerParentProps, fadeUpStaggerChild} from '@/constants/motionVariants'
 
 import CasesSectionArticle from './CasesSectionArticle/CasesSectionArticle'
 import SecondaryButton from '@/components/common/SecondaryButton/SecondaryButton'
@@ -23,7 +23,7 @@ export default function CasesSection() {
 	return (
 		<section className={classes.section}>
 			<div className={`wrapper ${classes.wrapper}`}>
-				<motion.div className={classes.content} {...fadeUpProps}>
+				<motion.div className={classes.content} {...getFadeUpProps(true)}>
 					<h2>Pomagamy wrócić do domu.</h2>
 					<div className={classes.persons}>
 						<img src={anetaGrabowska} alt='Janina K., odnaleziona - 5 marca 2024' />
@@ -45,7 +45,7 @@ export default function CasesSection() {
 				</motion.div>
 				{isDesktop && (
 					<Suspense>
-						<motion.ul className={classes.articles} {...fadeUpStaggerParentProps}>
+						<motion.ul className={classes.articles} {...getFadeUpStaggerParentProps(true)}>
 							<Await
 								resolve={cases}
 								errorElement={

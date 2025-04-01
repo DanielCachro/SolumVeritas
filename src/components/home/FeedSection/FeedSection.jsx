@@ -3,7 +3,7 @@ import {Await, useLoaderData} from 'react-router-dom'
 import {motion} from 'framer-motion'
 import {IMAGES_URL} from '@/util/http'
 import calculateReadTime from '@/util/calculateReadTime.js'
-import {fadeUpStaggerParentProps, fadeUpStaggerChild} from '@/constants/motionVariants'
+import {getFadeUpStaggerParentProps, fadeUpStaggerChild} from '@/constants/motionVariants'
 import ArticleCard from '@/components/common/ArticleCard/ArticleCard'
 import Loader from '@/components/common/Loader/Loader'
 import classes from './FeedSection.module.css'
@@ -16,7 +16,7 @@ export default function FeedSection() {
 		<section className={`wrapper ${classes.section}`}>
 			<h2>Aktualności</h2>
 			<Suspense fallback={<Loader />}>
-				<motion.ul className={classes.cards} {...fadeUpStaggerParentProps}>
+				<motion.ul className={classes.cards} {...getFadeUpStaggerParentProps(true)}>
 					<Await
 						resolve={feed}
 						errorElement={

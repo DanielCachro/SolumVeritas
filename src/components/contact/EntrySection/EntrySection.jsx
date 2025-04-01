@@ -1,5 +1,7 @@
+import {motion} from 'framer-motion'
 import {Mail} from 'lucide-react'
 import useMediaQuery from '@/hooks/useMediaQuery'
+import {getFadeUpProps} from '@/constants/motionVariants'
 import blueDressedWoman from '@/assets/BlueDressedWoman.jpg'
 import classes from './EntrySection.module.css'
 
@@ -7,7 +9,7 @@ export default function EntrySection() {
 	const isMobile = useMediaQuery('max-width: 790px')
 
 	return (
-		<section className={`wrapper ${classes.wrapper}`}>
+		<motion.section className={`wrapper ${classes.wrapper}`} {...getFadeUpProps()}>
 			<div className={classes.content}>
 				<div className={classes.header}>
 					<h1>Kontakt</h1>
@@ -21,7 +23,9 @@ export default function EntrySection() {
 					<a href='mailto:biuro@solumveritas.org'>biuro@solumveritas.org</a>
 				</div>
 			</div>
-			{!isMobile && <img src={blueDressedWoman} alt='Uśmiechnięta kobieta ubrana na niebiesko' />}
-		</section>
+			{!isMobile && (
+				<motion.img src={blueDressedWoman} alt='Uśmiechnięta kobieta ubrana na niebiesko' {...getFadeUpProps()} />
+			)}
+		</motion.section>
 	)
 }

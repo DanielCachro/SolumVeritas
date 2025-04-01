@@ -5,11 +5,21 @@ export const fadeInScale = {
 	visible: {opacity: 1, scale: 1, transition: {ease: 'easeOut'}},
 }
 
-export const fadeInScaleProps = {
-	variants: fadeInScale,
-	initial: 'hidden',
-	whileInView: 'visible',
-	viewport: {once: true},
+export const getFadeInScaleProps = (useWhileInView = false) => {
+	if (useWhileInView) {
+		return {
+			variants: fadeInScale,
+			initial: 'hidden',
+			whileInView: 'visible',
+			viewport: {once: true},
+		}
+	} else {
+		return {
+			variants: fadeInScale,
+			initial: 'hidden',
+			animate: 'visible',
+		}
+	}
 }
 
 // fadeUp
@@ -19,13 +29,22 @@ export const fadeUp = {
 	visible: {opacity: 1, y: 0, transition: {duration: 0.5}},
 }
 
-export const fadeUpProps = {
-	variants: fadeUp,
-	initial: 'hidden',
-	whileInView: 'visible',
-	viewport: {once: true},
+export const getFadeUpProps = (useWhileInView = false) => {
+	if (useWhileInView) {
+		return {
+			variants: fadeUp,
+			initial: 'hidden',
+			whileInView: 'visible',
+			viewport: {once: true},
+		}
+	} else {
+		return {
+			variants: fadeUp,
+			initial: 'hidden',
+			animate: 'visible',
+		}
+	}
 }
-
 // fadeUpStagger
 
 export const fadeUpStaggerParent = {
@@ -37,11 +56,21 @@ export const fadeUpStaggerParent = {
 	},
 }
 
-export const fadeUpStaggerParentProps = {
-	variants: fadeUpStaggerParent,
-	initial: 'hidden',
-	whileInView: 'visible',
-	viewport: {once: true},
+export const getFadeUpStaggerParentProps = (useWhileInView = false) => {
+	if (useWhileInView) {
+		return {
+			variants: fadeUpStaggerParent,
+			initial: 'hidden',
+			whileInView: 'visible',
+			viewport: {once: true},
+		}
+	} else {
+		return {
+			variants: fadeUpStaggerParent,
+			initial: 'hidden',
+			animate: 'visible',
+		}
+	}
 }
 
 export const fadeUpStaggerChild = {

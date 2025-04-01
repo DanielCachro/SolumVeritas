@@ -1,7 +1,7 @@
 import {Suspense, useRef} from 'react'
 import {Await, useLoaderData} from 'react-router-dom'
 import {motion} from 'motion/react'
-import {fadeUpStaggerParentProps, fadeUpStaggerChild} from '@/constants/motionVariants'
+import {getFadeUpStaggerParentProps, fadeUpStaggerChild} from '@/constants/motionVariants'
 import {IMAGES_URL} from '@/util/http'
 import Slider from 'react-slick'
 import Loader from '@/components/common/Loader/Loader'
@@ -69,7 +69,7 @@ export default function PersonsSection() {
 						</div>
 					}>
 					{resolvedPersons => (
-						<motion.div className={classes.carousel} {...fadeUpStaggerParentProps}>
+						<motion.div className={classes.carousel} {...getFadeUpStaggerParentProps(true)}>
 							<motion.div className={classes.carousel__header} variants={fadeUpStaggerChild}>
 								<h2>Tworzą nas ludzie</h2>
 								<div className={classes.carousel__buttons}>

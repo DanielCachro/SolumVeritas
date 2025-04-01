@@ -1,6 +1,6 @@
 import {motion} from 'motion/react'
 import useMediaQuery from '@/hooks/useMediaQuery'
-import {fadeUpStaggerParentProps, fadeUpStaggerChild} from '@/constants/motionVariants'
+import {getFadeUpStaggerParentProps, fadeUpStaggerChild} from '@/constants/motionVariants'
 import blueDressedWoman from '@/assets/BlueDressedWoman.jpg'
 import Puzzles from '@/assets/Puzzles.png'
 import classes from './AboutSection.module.css'
@@ -11,7 +11,7 @@ export default function Section() {
 	return (
 		<section className={`${classes.section} ${!isMobile ? 'desktop' : ''}`.trim()}>
 			<div className='wrapper'>
-				<motion.div className={classes.box} id='about' {...fadeUpStaggerParentProps}>
+				<motion.div className={classes.box} id='about' {...getFadeUpStaggerParentProps(true)}>
 					<motion.div className={classes.box__content} variants={fadeUpStaggerChild}>
 						<div className={classes.box__header}>
 							<p>Nasze Stowarzyszenie</p>
@@ -38,7 +38,7 @@ export default function Section() {
 						/>
 					)}
 				</motion.div>
-				<motion.div className={classes.team} {...fadeUpStaggerParentProps}>
+				<motion.div className={classes.team} {...getFadeUpStaggerParentProps(true)}>
 					<motion.div className={classes.team__content} variants={fadeUpStaggerChild}>
 						<h2>Nasz zespół</h2>
 						<div>
