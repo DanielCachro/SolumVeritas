@@ -1,5 +1,6 @@
 import {useEffect, useRef, useState} from 'react'
 import {useParams} from 'react-router-dom'
+import {motion, AnimatePresence} from 'framer-motion'
 import {keepPreviousData, useQuery} from '@tanstack/react-query'
 import qs from 'qs'
 import {MoveLeft, MoveRight} from 'lucide-react'
@@ -19,7 +20,9 @@ export default function PostsSection() {
 
 	const postsRef = useRef(null)
 	const scrollToPosts = () => {
-		postsRef.current?.scrollIntoView({behavior: 'smooth'})
+		const offset = 16
+		const topPosition = postsRef.current?.offsetTop - offset
+		window.scrollTo({top: topPosition, behavior: 'smooth'})
 	}
 
 	const query = qs.stringify(
@@ -39,7 +42,7 @@ export default function PostsSection() {
 	const {
 		data: queryData,
 		isPlaceholderData,
-		isFetching,
+		isPending,
 		isError,
 		error,
 	} = useQuery({
@@ -75,6 +78,9 @@ export default function PostsSection() {
 	const paginationNumbers = generatePaginationNumbers(page, pageCount)
 
 	const handlePageChange = newPage => {
+		setTimeout(() => {
+			scrollToPosts()
+		}, 100)
 		if (newPage >= 1 && newPage <= pageCount) {
 			setPage(newPage)
 		}
@@ -108,20 +114,32 @@ export default function PostsSection() {
 		<section ref={postsRef} className={`wrapper ${classes.section}`}>
 			<h1>{blogType === 'aktualnosci' ? 'Aktualności' : 'Nasze Sprawy'}</h1>
 			<div className={classes.posts}>
-				{!isFetching && (
+				{!isPending && (
 					<>
-						<ul className={classes.posts__cards}>
-							{queryData?.data.map(article => (
-								<ArticleCard
-									key={article.documentId}
-									readTimeInMinutes={calculateReadTime(article.blocks)}
-									cover={`${IMAGES_URL}${article.cover.url}`}
-									title={article.title}
-									description={article.description}
-									articlePath={article.slug}
-								/>
-							))}
-						</ul>
+						<AnimatePresence mode='wait'>
+							<motion.ul
+								className={classes.posts__cards}
+								variants={{
+									hidden: {opacity: 0, scale: 0.8},
+									visible: {opacity: 1, scale: 1, transition: {duration: 0.5}},
+								}}
+								initial='hidden'
+								animate='visible'
+								exit='hidden'
+								key={page}>
+								{queryData?.data.map(article => (
+									<ArticleCard
+										key={article.documentId}
+										readTimeInMinutes={calculateReadTime(article.blocks)}
+										cover={`${IMAGES_URL}${article.cover.url}`}
+										title={article.title}
+										description={article.description}
+										articlePath={article.slug}
+									/>
+								))}
+							</motion.ul>
+						</AnimatePresence>
+
 						<div className={classes.posts__pagination}>
 							<button
 								className={classes.posts__paginationButton}
@@ -136,7 +154,6 @@ export default function PostsSection() {
 									<li key={number} className={number === page ? classes.posts__activeNumber : ''}>
 										<button
 											onClick={() => {
-												scrollToPosts()
 												handlePageChange(number)
 											}}>
 											{number}
@@ -155,7 +172,7 @@ export default function PostsSection() {
 						</div>
 					</>
 				)}
-				{isFetching && <Loader />}
+				{isPending && <Loader />}
 			</div>
 		</section>
 	)

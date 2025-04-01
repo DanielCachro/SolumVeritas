@@ -8,6 +8,7 @@ Solum Veritas is a React-based web application built with Vite. The project supp
 - **Data Fetching**: Uses `@tanstack/react-query` for efficient API data fetching and caching.
 - **Responsive Design**: Fully responsive layout with CSS modules.
 - **Dynamic Content**: Fetches and displays news, cases, and team member information dynamically.
+- **Smooth Animations**: Built with `motion` (Framer Motion) for declarative animations and transitions.
 - **Error Handling**: Custom error pages for better user experience.
 
 ## Project Structure
@@ -99,6 +100,7 @@ npm run lint
 - [Vite](https://vitejs.dev/) - Build tool
 - [React Router](https://reactrouter.com/) - Routing library
 - [TanStack Query](https://tanstack.com/query/latest) - Data fetching and caching
+- [Motion](https://www.framer.com/motion/) - Declarative animations and transitions
 - [Slick Carousel](https://react-slick.neostack.com/) - Carousel component
 - [Lucide React](https://lucide.dev/) - Icon library
 

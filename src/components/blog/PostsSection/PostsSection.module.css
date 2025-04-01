@@ -4,7 +4,6 @@
 	align-items: center;
 	gap: var(--48px);
 	padding-top: var(--16px);
-	padding-bottom: var(--192px);
 
 	h1 {
 		font-size: var(--20px);
@@ -38,10 +37,12 @@
 
 	.posts__pagination {
 		display: flex;
+		flex-direction: column;
 		justify-content: space-between;
 		align-items: center;
+		gap: var(--24px);
 		border-top: 1px solid var(--color-nav-separator);
-		padding: var(--24px) 0;
+		padding: var(--64px) 0;
 	}
 
 	.posts__paginationNumbers {
@@ -92,6 +93,18 @@
 		&:focus-visible {
 			color: var(--color-accent-light);
 			cursor: pointer;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.section {
+		padding-bottom: var(--128px);
+	}
+
+	.posts {
+		.posts__pagination {
+			flex-direction: row;
 		}
 	}
 }

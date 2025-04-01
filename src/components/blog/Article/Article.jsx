@@ -9,11 +9,14 @@ import Image from './blocks/Image/Image'
 import PureText from './blocks/PureText/PureText'
 import TextBlock from './blocks/TextBlock/TextBlock'
 
+import {motion} from 'motion/react'
+import {fadeUp} from '@/constants/motionVariants'
+
 export default function Article() {
 	const article = useLoaderData()
 
 	return (
-		<section className={classes.section}>
+		<motion.section className={classes.section} variants={fadeUp} initial='hidden' animate='visible'>
 			<div className={classes.header}>
 				<p>{`Przeczytasz w ${getMinuteString(calculateReadTime(article.blocks))}`}</p>
 				<h1>{article.title}</h1>
@@ -42,6 +45,6 @@ export default function Article() {
 					}
 				})}
 			</div>
-		</section>
+		</motion.section>
 	)
 }
