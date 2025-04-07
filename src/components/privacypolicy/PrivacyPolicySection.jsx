@@ -2,7 +2,7 @@ import classes from './PrivacyPolicySection.module.css'
 
 export default function PrivacyPolicySection() {
 	return (
-		<section className={`wrapper ${classes.section}`.trim()}>
+		<section className={classes.section}>
 			<h1>Polityka prywatności</h1>
 			<h2>
 				Polityka prywatności opisuje zasady przetwarzania przez nas informacji na Twój temat, w tym danych osobowych
@@ -61,9 +61,10 @@ export default function PrivacyPolicySection() {
 			<div className={classes.block}>
 				<h2>3. Hosting</h2>
 				<ol>
+					<li>Serwis jest hostowany (technicznie utrzymywany) na serwerach operatora: OVH</li>
 					<li>
-						Serwis jest hostowany (technicznie utrzymywany) na serwerach operatora: OVH. Firma hostingowa w celu
-						zapewnienia niezawodności technicznej prowadzi logi na poziomie serwera. Zapisowi mogą podlegać:
+						Firma hostingowa w celu zapewnienia niezawodności technicznej prowadzi logi na poziomie serwera. Zapisowi
+						mogą podlegać:
 						<ul>
 							<li>zasoby określone identyfikatorem URL (adresy żądanych zasobów – stron, plików)</li>
 							<li>czas nadejścia zapytania</li>
@@ -147,6 +148,76 @@ export default function PrivacyPolicySection() {
 					<li>
 						Dane osobowe nie są przekazywane od krajów trzecich w rozumieniu przepisów o ochronie danych osobowych.
 						Oznacza to, że nie przesyłamy ich poza teren Unii Europejskiej.
+					</li>
+				</ol>
+			</div>
+			<div className={classes.block}>
+				<h2>5. Informacje w formularzach</h2>
+				<ol>
+					<li>
+						Serwis zbiera informacje podane dobrowolnie przez użytkownika, w tym dane osobowe, o ile zostaną one podane.
+					</li>
+					<li>Serwis może zapisać informacje o parametrach połączenia (oznaczenie czasu, adres IP).</li>
+					<li>
+						Serwis, w niektórych wypadkach, może zapisać informację ułatwiającą powiązanie danych w formularzu z adresem
+						e-mail użytkownika wypełniającego formularz.
+					</li>
+					<li>
+						Dane podane w formularzu są przetwarzane w celu wynikającym z funkcji konkretnego formularza, np. w celu
+						dokonania procesu obsługi zgłoszenia serwisowego lub kontaktu handlowego, rejestracji usług itp.
+					</li>
+				</ol>
+			</div>
+			<div className={classes.block}>
+				<h2>6. Logi Administratora</h2>
+				<ol>
+					<li>
+						Informacje zachowaniu użytkowników w serwisie mogą podlegać logowaniu. Dane te są wykorzystywane w celu
+						administrowania serwisem.
+					</li>
+				</ol>
+			</div>
+			<div className={classes.block}>
+				<h2>7. Istotne techniki marketingowe</h2>
+				<ol>
+					<li>
+						Operator stosuje analizę statystyczną ruchu na stronie, poprzez Google Analytics (Google Inc. z siedzibą w
+						USA). Operator nie przekazuje do operatora tej usługi danych osobowych, a jedynie zanonimizowane informacje.
+						Usługa bazuje na wykorzystaniu ciasteczek w urządzeniu końcowym użytkownika.
+					</li>
+					<li>
+						Operator stosuje techniki remarketingowe, pozwalające na dopasowanie przekazów reklamowych do zachowania
+						użytkownika na stronie.
+					</li>
+					<li>
+						Operator stosuje korzysta z piksela Facebooka. Ta technologia powoduje, że serwis Facebook wie, że dana
+						osoba w nim zarejestrowana korzysta z Serwisu.
+					</li>
+					<li>
+						Operator stosuje rozwiązanie badające zachowanie użytkowników poprzez tworzenie map ciepła oraz nagrywanie
+						zachowania na stronie.
+					</li>
+					<li>Operator stosuje rozwiązanie automatyzujące działanie Serwisu w odniesieniu do użytkowników.</li>
+				</ol>
+			</div>
+			<div className={classes.block}>
+				<h2>8. Informacja o plikach cookies</h2>
+				<ol>
+					<li>Serwis korzysta z plików cookies.</li>
+					<li>
+						Pliki cookies (tzw. „ciasteczka”) stanowią dane informatyczne, w szczególności pliki tekstowe, które
+						przechowywane są w urządzeniu końcowym Użytkownika Serwisu i przeznaczone są do korzystania ze stron
+						internetowych Serwisu.
+					</li>
+				</ol>
+			</div>
+			<div className={classes.block}>
+				<h2>9. Zarządzanie plikami cookies – jak w praktyce wyrażać i cofać zgodę?</h2>
+				<ol>
+					<li>
+						Jeśli użytkownik nie chce otrzymywać plików cookies, może zmienić ustawienia przeglądarki. Zastrzegamy, że
+						wyłączenie obsługi plików cookies niezbędnych dla procesów uwierzytelniania, bezpieczeństwa, utrzymania
+						preferencji użytkownika może utrudnić, a w skrajnych przypadkach może uniemożliwić korzystanie ze stron www.
 					</li>
 				</ol>
 			</div>

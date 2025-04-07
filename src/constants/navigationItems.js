@@ -25,8 +25,8 @@ export const navigationItems = [
 		],
 	},
 	{
-		title: 'Pomoc',
-		link: '/kontakt',
+		title: 'Poradnik',
+		link: '/aktualnosci/poradnik-co-zrobic-natychmiast-po-zaginieciu-osoby',
 	},
 	{
 		title: 'Kontakt',

@@ -1,5 +1,7 @@
 .section {
-	padding: var(--48px);
+	max-width: var(--root-max-width);
+	padding: var(--24px);
+	margin: 0 auto;
 
 	h1 {
 		font-size: var(--28px);
@@ -14,7 +16,7 @@
 }
 
 .block {
-	padding: var(--24px);
+	padding: var(--24px) 0 var(--24px) 0;
 
 	ol {
 		padding: var(--16px);
@@ -35,6 +37,7 @@
 
 @media (min-width: 768px) {
 	.section {
+		padding: var(--48px);
 		h1 {
 			font-size: var(--36px);
 			font-weight: var(--font-weight-semibold);

@@ -6,6 +6,7 @@ import classes from './Article.module.css'
 
 // Article Blocks
 import Image from './blocks/Image/Image'
+import ImageContain from './blocks/ImageContain/ImageContain'
 import PureText from './blocks/PureText/PureText'
 import TextBlock from './blocks/TextBlock/TextBlock'
 
@@ -28,6 +29,17 @@ export default function Article() {
 						case 'blog-component.image':
 							return (
 								<Image
+									key={block.id}
+									src={`${IMAGES_URL}${block.image.url}`}
+									alt={
+										block.image.alternativeText ||
+										`Zdjęcie w środku artykułu o nazwie ${block.image.name.split('.')[0]}`
+									}
+								/>
+							)
+						case 'blog-component.image-contain':
+							return (
+								<ImageContain
 									key={block.id}
 									src={`${IMAGES_URL}${block.image.url}`}
 									alt={
