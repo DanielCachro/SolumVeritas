@@ -1,8 +1,8 @@
 import {useEffect, useRef, useState, useContext} from 'react'
-import {NavLink} from 'react-router'
 import {ArrowDown} from 'lucide-react'
 
 import {NavigationContext} from '../Header'
+import NavigationLink from './NavigationLink'
 
 export default function ExpandingMenuItem({item, classes}) {
 	const [isOpen, setIsOpen] = useState(false)
@@ -31,9 +31,7 @@ export default function ExpandingMenuItem({item, classes}) {
 				<ul className={classes.submenu}>
 					{item.children.map(item => (
 						<li key={item.title}>
-							<NavLink onClick={toggleNavigation} to={item.link}>
-								{item.title}
-							</NavLink>
+							<NavigationLink navigationItem={item} onClick={toggleNavigation} />
 						</li>
 					))}
 				</ul>

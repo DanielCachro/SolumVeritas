@@ -9,6 +9,7 @@ import HomePage from './routes/Home'
 import ContactPage from './routes/Contact'
 import ArticlesPage from './routes/Articles'
 import ArticlePage, {loader as articleLoader} from './routes/Article'
+import PrivacyPolicyPage from './routes/PrivacyPolicy'
 
 const router = createBrowserRouter([
 	{
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
 				path: ':blogType/:slug',
 				element: <ArticlePage />,
 				loader: articleLoader,
+			},
+			{
+				path: 'polityka-prywatnosci',
+				element: <PrivacyPolicyPage />,
 			},
 		],
 		errorElement: <Error />,

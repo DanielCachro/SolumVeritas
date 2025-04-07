@@ -16,15 +16,11 @@ export const navigationItems = [
 		children: [
 			{
 				title: 'Statut',
-				link: '#',
-			},
-			{
-				title: 'Regulamin Legitymacji',
-				link: '#',
+				link: '/Statut-SOLUM-VERITAS.pdf',
 			},
 			{
 				title: 'Polityka Prywatności',
-				link: '#',
+				link: '/polityka-prywatnosci',
 			},
 		],
 	},

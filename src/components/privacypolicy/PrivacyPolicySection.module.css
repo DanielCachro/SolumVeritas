@@ -1,0 +1,48 @@
+.section {
+	padding: var(--48px);
+
+	h1 {
+		font-size: var(--28px);
+		font-weight: var(--font-weight-semibold);
+		margin-bottom: var(--16px);
+	}
+
+	h2 {
+		font-size: var(--20px);
+		font-weight: var(--font-weight-medium);
+	}
+}
+
+.block {
+	padding: var(--24px);
+
+	ol {
+		padding: var(--16px);
+	}
+
+	li {
+		margin-bottom: var(--8px);
+	}
+
+	li:first-child {
+		margin-top: var(--16px);
+	}
+
+	ol > li {
+		padding: var(--8px);
+	}
+}
+
+@media (min-width: 768px) {
+	.section {
+		h1 {
+			font-size: var(--36px);
+			font-weight: var(--font-weight-semibold);
+		}
+
+		h2 {
+			font-size: var(--28px);
+			font-weight: var(--font-weight-semibold);
+		}
+	}
+}

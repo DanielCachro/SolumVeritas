@@ -1,7 +1,7 @@
 import {useContext} from 'react'
-import {NavLink} from 'react-router'
 
 import {NavigationContext} from '../Header'
+import NavigationLink from './NavigationLink'
 import ExpandingMenuItem from './ExpandingMenuItem'
 
 import {navigationItems} from '@/constants/navigationItems'
@@ -16,11 +16,7 @@ export default function MainNavigation() {
 				{navigationItems.map(item => (
 					<li key={item.title} className={classes.link}>
 						{item.children && <ExpandingMenuItem item={item} classes={classes} />}
-						{!item.children && (
-							<NavLink onClick={toggleNavigation} to={item.link}>
-								{item.title}
-							</NavLink>
-						)}
+						{!item.children && <NavigationLink navigationItem={item} onClick={toggleNavigation} />}
 					</li>
 				))}
 			</menu>
