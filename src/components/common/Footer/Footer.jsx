@@ -3,6 +3,8 @@ import {NavLink} from 'react-router'
 import classes from './Footer.module.css'
 import {navigationItems} from '@/constants/navigationItems'
 
+import NavigationLink from '@/components/common/NavigationLink/NavigationLink'
+
 import facebook from '@/assets/facebook.svg'
 
 export default function Footer() {
@@ -15,7 +17,7 @@ export default function Footer() {
 							.filter(item => !item.children)
 							.map(item => (
 								<li key={item.title}>
-									<NavLink to={item.link}>{item.title}</NavLink>
+									<NavigationLink navigationItem={item} />
 								</li>
 							))}
 					</menu>
@@ -44,7 +46,7 @@ export default function Footer() {
 								.flatMap(item => item.children)
 								.map(child => (
 									<li key={child.title}>
-										<NavLink to={child.link}>{child.title}</NavLink>
+										<NavigationLink navigationItem={child} />
 									</li>
 								))}
 						</menu>

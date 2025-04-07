@@ -1,7 +1,7 @@
 import {useContext} from 'react'
 
 import {NavigationContext} from '../Header'
-import NavigationLink from './NavigationLink'
+import NavigationLink from '@/components/common/NavigationLink/NavigationLink'
 import ExpandingMenuItem from './ExpandingMenuItem'
 
 import {navigationItems} from '@/constants/navigationItems'

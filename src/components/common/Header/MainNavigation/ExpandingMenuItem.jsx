@@ -2,7 +2,7 @@ import {useEffect, useRef, useState, useContext} from 'react'
 import {ArrowDown} from 'lucide-react'
 
 import {NavigationContext} from '../Header'
-import NavigationLink from './NavigationLink'
+import NavigationLink from '@/components/common/NavigationLink/NavigationLink'
 
 export default function ExpandingMenuItem({item, classes}) {
 	const [isOpen, setIsOpen] = useState(false)
