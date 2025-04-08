@@ -7,4 +7,12 @@
 		font-size: var(--20px);
 		font-weight: var(--font-weight-medium);
 	}
+
+	p {
+		white-space: pre-line;
+	}
+
+	strong {
+		font-weight: var(--font-weight-medium);
+	}
 }

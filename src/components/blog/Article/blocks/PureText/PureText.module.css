@@ -1,0 +1,9 @@
+.textBlock {
+	p {
+		white-space: pre-line;
+	}
+
+	strong {
+		font-weight: var(--font-weight-medium);
+	}
+}
