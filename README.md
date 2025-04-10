@@ -1,4 +1,5 @@
 # Solum Veritas
+[https://solumveritas.org/](https://solumveritas.org/)
 
 Solum Veritas is a React-based web application built with Vite. The project supports individuals affected by disappearances, offering resources, news, and case studies. It is designed to be fast, responsive, and user-friendly.
 
@@ -9,6 +10,7 @@ Solum Veritas is a React-based web application built with Vite. The project supp
 - **Responsive Design**: Fully responsive layout with CSS modules.
 - **Dynamic Content**: Fetches and displays news, cases, and team member information dynamically.
 - **Smooth Animations**: Built with `motion` (Framer Motion) for declarative animations and transitions.
+- **Markdown Rendering**: Uses `react-markdown` to render rich text content from Markdown.
 - **Error Handling**: Custom error pages for better user experience.
 
 ## Project Structure
@@ -101,6 +103,7 @@ npm run lint
 - [React Router](https://reactrouter.com/) - Routing library
 - [TanStack Query](https://tanstack.com/query/latest) - Data fetching and caching
 - [Motion](https://www.framer.com/motion/) - Declarative animations and transitions
+- [React Markdown](https://github.com/remarkjs/react-markdown) - Rendering rich text content from markdown
 - [Slick Carousel](https://react-slick.neostack.com/) - Carousel component
 - [Lucide React](https://lucide.dev/) - Icon library
 
