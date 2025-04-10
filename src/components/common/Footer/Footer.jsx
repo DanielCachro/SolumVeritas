@@ -31,9 +31,12 @@ export default function Footer() {
 				</div>
 				<div className={classes.information}>
 					<div>
-						<p>STOWARZYSZENIE SOLUM VERITAS</p>
+						<p className={classes.information__companyName}>STOWARZYSZENIE SOLUM VERITAS</p>
 						<p>
 							KRS: <span className={classes.grayText}>0001025724</span>
+						</p>
+						<p>
+							NIP: <span className={classes.grayText}>7162839529</span>
 						</p>
 						<p>
 							Regon: <span className={classes.grayText}>525076181</span>

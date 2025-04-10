@@ -53,6 +53,10 @@
 			align-items: center;
 			gap: var(--32px);
 			padding-top: var(--32px);
+
+			.information__companyName {
+				margin-bottom: var(--8px);
+			}
 		}
 	}
 }
