@@ -21,7 +21,7 @@ export default function Article() {
 			<div className={classes.header}>
 				<p>{`Przeczytasz w ${getMinuteString(calculateReadTime(article.blocks))}`}</p>
 				<h1>{article.title}</h1>
-				<img src={`${IMAGES_URL}${article.cover.url}`} />
+				<img src={`${IMAGES_URL}${article.cover.url}`} alt={`Okładka artykułu ${article.title}`} />
 			</div>
 			<div className={classes.blocks}>
 				{article.blocks.map(block => {
