@@ -9,6 +9,8 @@
 		max-width: var(--256px);
 		max-height: calc(var(--256px) / 1.5);
 		border-radius: 8px;
+		aspect-ratio: 1.5;
+		object-fit: cover;
 	}
 
 	.article__content {
